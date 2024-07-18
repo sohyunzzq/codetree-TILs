@@ -1,4 +1,5 @@
 n = int(input())
-
-for i in range(n):
+i = 0
+while i < n:
     print("*")
+    i += 1

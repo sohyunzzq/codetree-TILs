@@ -3,7 +3,7 @@ n = int(input())
 
 i = 1
 while True:
-    n /= i
+    n //= i
     cnt += 1
     i += 1
     

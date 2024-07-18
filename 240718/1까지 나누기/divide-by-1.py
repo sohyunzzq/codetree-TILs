@@ -7,7 +7,7 @@ while True:
     cnt += 1
     i += 1
     
-    if n < 1:
+    if n <= 1:
         break
 
 print(cnt)

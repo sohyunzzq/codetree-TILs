@@ -1,6 +1,6 @@
 def lcm(n, m):
     for i in range(max(n, m), n*m+1, max(n, m)):
-        if i % n == 0:
+        if i % min(m, n) == 0:
             print(i)
             return
 

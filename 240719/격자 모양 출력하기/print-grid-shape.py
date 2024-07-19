@@ -4,7 +4,7 @@ pan = []
 for i in range(n):
     pan.append([0]*n)
 
-for i in range(n):
+for i in range(m):
     x, y = map(int, input().split())
     pan[x-1][y-1] = x*y
 

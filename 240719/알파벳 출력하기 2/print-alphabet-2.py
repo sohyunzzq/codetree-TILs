@@ -8,4 +8,6 @@ for i in range(n):
     for j in range(n-i):
         print(str1[index], end = " ")
         index += 1
+        if index > 25:
+            index = 0
     print()

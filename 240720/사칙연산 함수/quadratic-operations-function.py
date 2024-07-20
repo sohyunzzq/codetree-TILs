@@ -14,7 +14,10 @@ a, o, c = input().split()
 a = int(a)
 c = int(c)
 
-print("{} {} {} = ".format(a, o, c), end = "")
+if o in "+-/*":
+    print("{} {} {} = ".format(a, o, c), end = "")
+else:
+    print("False")
 if o == "+":
     print(plus(a, c))
 elif o == "-":
@@ -23,5 +26,3 @@ elif o == "*":
     print(mul(a, c))
 elif o == "/":
     print(div(a, c))
-else:
-    print("False")

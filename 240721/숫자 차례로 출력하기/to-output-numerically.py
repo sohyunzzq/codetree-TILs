@@ -1,9 +1,19 @@
 n = int(input())
 
-for i in range(1, n+1):
-    print(i, end = " ")
+def print_f(n):
+    if n == 0:
+        return
+    
+    print_f(n-1)
+    print(n, end = " ")
 
+def print_b(n):
+    if n == 0:
+        return
+        
+    print(n, end = " ")
+    print_b(n-1)
+
+print_f(n)
 print()
-
-for i in range(n, 0, -1):
-    print(i, end = " ")
+print_b(n)

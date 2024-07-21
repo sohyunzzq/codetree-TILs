@@ -1,10 +1,8 @@
 def sum_rec(n):
-    if n == 1:
-        return 1
+    if n == 0:
+        return 0
     
     return n + sum_rec(n-1)
 
-total = 0
 n = int(input())
-total += sum_rec(n)
-print(total)
+print(sum_rec(n))

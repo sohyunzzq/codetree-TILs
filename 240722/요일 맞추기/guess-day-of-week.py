@@ -18,7 +18,7 @@ result = new % 7 - old % 7
 
 if 1 + result < 0:
     result += 7
-if 1 + result > 7:
+if 1 + result > 6:
     result -= 7
 
 print(day[1 + result])

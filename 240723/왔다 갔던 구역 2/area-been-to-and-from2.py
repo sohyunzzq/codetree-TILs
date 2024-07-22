@@ -14,12 +14,10 @@ for i in range(n):
             area[j] += 1
         now += int(num)
 
-area.sort(reverse=True)
-
 cnt = 0
 for i in area:
-    if i < 2:
-        break
-    cnt += 1
+    if i >= 2:
+        cnt += 1
+# sort한 후 break를 했었는데, 시간 복잡도가 O(nlogn) 이라서 이렇게 함
 
 print(cnt)

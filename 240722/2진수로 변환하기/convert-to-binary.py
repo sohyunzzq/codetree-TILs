@@ -7,5 +7,5 @@ while n > 1:
 
 res.append(n)
 
-for i in range(len(res)):
-    print(res[::-1][i], end = "")
+for i in res[::-1]:
+    print(i, end = "")

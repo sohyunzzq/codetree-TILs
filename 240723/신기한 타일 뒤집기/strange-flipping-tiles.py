@@ -8,7 +8,7 @@ for i in range(n):
     if pos == "L":
         for j in range(now - int(num) + 1, now + 1):
             lst[j] = 1
-        now = now - int(num)
+        now = now - int(num) + 1
     else:
         for j in range(now, now + int(num)):
             lst[j] = 2

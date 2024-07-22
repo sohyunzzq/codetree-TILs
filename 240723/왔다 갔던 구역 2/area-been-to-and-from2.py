@@ -6,13 +6,13 @@ now = 10*n
 for i in range(n):
     num, p = input().split()
     if p == "L":
-        now -= int(num)
         for j in range(now-int(num), now):
             area[j] += 1
+        now -= int(num)
     else:
-        now += int(num)
         for j in range(now, now+int(num)):
             area[j] += 1
+        now += int(num)
 
 area.sort(reverse=True)
 

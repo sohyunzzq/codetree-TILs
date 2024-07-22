@@ -4,14 +4,6 @@ class Lst:
         self.w = w
         self.b = b
 
-'''
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-            s
-            2 2 2 2
-          1 1 1 1 1
-          2 2 2 2 2 2 2
-                1 1 1 1
-'''
 n = int(input())
 lsts = [Lst() for i in range(n*100*2+1)]
 

@@ -4,7 +4,7 @@ day = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 m1, d1, m2, d2 = map(int, input().split())
 A = input()
 
-for i in range(6):
+for i in range(7):
     if A == day[i]:
         index = i
 

@@ -1,6 +1,6 @@
 n = int(input())
 
-lst = [0] * 200
+lst = [0] * 201
 for i in range(n):
     a, b = map(int, input().split())
     for j in range(a, b):

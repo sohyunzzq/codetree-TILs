@@ -1,6 +1,6 @@
 N, K = map(int, input().split())
 
-lst = [0] * N
+lst = [0] * (N+1)
 
 for i in range(K):
     a, b = map(int, input().split())

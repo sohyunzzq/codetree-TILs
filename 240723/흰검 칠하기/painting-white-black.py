@@ -1,7 +1,8 @@
 class Lst:
-    def __init__(self, color=0, cnt=0):
+    def __init__(self, color=0, w=0, b=0):
         self.color = color
-        self.cnt = cnt
+        self.w = w
+        self.b = b
 
 '''
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -21,19 +22,19 @@ for i in range(n):
     num, pos = input().split()
     if pos == "L":
         for j in range(now-int(num)+1, now+1):
-            if lsts[j].cnt >= 3:
+            if lsts[j].w >= 1 and lsts[j].b >= 2:
                 lsts[j].color = 3
             else:
                 lsts[j].color = 1
-            lsts[j].cnt += 1
+            lsts[j].w += 1
         now = now - int(num) + 1
     else:
         for j in range(now, now+int(num)):
-            if lsts[j].cnt >= 3:
+            if lsts[j].w >= 2 and lsts[j].b >= 1:
                 lsts[j].color = 3
             else:
                 lsts[j].color = 2
-            lsts[j].cnt += 1
+            lsts[j].b += 1
         now = now + int(num) - 1
 
 white = 0

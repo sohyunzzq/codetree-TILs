@@ -12,5 +12,6 @@ for i in range(n):
         cnt = 1
     else:
         cnt += 1
+res = max(cnt, res)
 
 print(res)

@@ -21,6 +21,6 @@ for i in range(m):
 
 cnt = 0
 for i in range(1, len(A)):
-    if A[i-1] == B[i-1] and (A[i] > B[i] or A[i] < B[i]):
+    if (A[i-1] >= B[i-1] and A[i] < B[i]) or (A[i-1] <= B[i-1] and A[i] > B[i]):
         cnt += 1
 print(cnt)

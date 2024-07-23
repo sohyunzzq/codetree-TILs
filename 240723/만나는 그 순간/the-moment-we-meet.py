@@ -32,3 +32,5 @@ for i in range(1, min(len(A), len(B))):
     if A[i] == B[i]:
         print(i+1)
         break
+if i == min(len(A), len(B)):
+    print(-1)

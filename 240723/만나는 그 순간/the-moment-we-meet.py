@@ -28,9 +28,9 @@ for i in range(m):
             B.append(j)
         Bnow += int(num)
 
+result = -1
 for i in range(1, min(len(A), len(B))):
     if A[i] == B[i]:
-        print(i+1)
+        result = i + 1
         break
-if i == min(len(A), len(B)):
-    print(-1)
+print(result)

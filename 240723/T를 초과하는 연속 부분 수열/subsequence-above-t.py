@@ -2,13 +2,12 @@ n, t = map(int, input().split())
 lst = list(map(int, input().split()))
 
 res = 0
+cnt = 0
 for i in range(n):
-    if lst[i] <= t:
-        cnt = 0
-    elif i >= 1:
+    if lst[i] >= t:
         cnt += 1
     else:
-        cnt = 1
+        cnt = 0
     res = max(res, cnt)
 
 print(res)

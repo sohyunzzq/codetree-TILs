@@ -15,7 +15,7 @@ cover(r2x1+1000, r2y1+1000, r2x2+1000, r2y2+1000, 0)
 
 result = 0
 
-xmax, xmin, ymax, ymin = 0, 0, 0, 0
+xmax, xmin, ymax, ymin = 0, 2000, 0, 2000
 for i in range(2001):
     for j in range(2001):
         if area[i][j] == 1:

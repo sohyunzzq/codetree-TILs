@@ -16,7 +16,7 @@ for i in range(n):
         for j in range(Anow + 1, Anow + int(t) + 1): #7에서 2 R이면 8 9
             A.append(j)
         Anow += int(t)
-    
+
 for i in range(m):
     t, d = input().split()
 
@@ -44,13 +44,10 @@ else:
     minrobot = A
 
 for i in range(minlen):
-    if A[i] == B[i] and A[i] != p:
+    if i >= 1 and A[i] == B[i] and B[i-1] != A[i-1]:
         cnt += 1
-        p = A[i]
 
 for i in range(minlen, maxlen):
-    if maxrobot[i] == minrobot[minlen - 1] and maxrobot[i] != p:
+    if maxrobot[i] == minrobot[minlen - 1]:
         cnt += 1
-        p = maxrobot[i]
-
 print(cnt)

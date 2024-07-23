@@ -13,17 +13,40 @@ for i in range(2001):
 cover(r1x1+1000, r1y1+1000, r1x2+1000, r1y2+1000, 1)
 cover(r2x1+1000, r2y1+1000, r2x2+1000, r2y2+1000, 0)
 
-cntlst1 = [0] * 2001
-cntlst2 = [0] * 2001
-
+flag = 0
 for i in range(2001):
-    for j in range(2001):
-        if area[i][j] == 1:
-            cntlst1[i] += 1
+    if flag == 0:
+        for j in range(2001):
+            if area[i][j] == 1:
+                a = i
+                flag = 1
+                break
 
+flag = 0
+for i in range(2000, -1, -1):
+    if flag == 0:
+        for j in range(2001):
+            if area[i][j] == 1:
+                b = i
+                flag = 1
+                break
+
+flag = 0
 for i in range(2001):
-    for j in range(2001):
-        if area[j][i] == 1:
-            cntlst2[i] += 1
+    if flag == 0:
+        for j in range(2001):
+            if area[j][i] == 1:
+                c = i
+                flag = 1
+                break
 
-print(max(cntlst1) * max(cntlst2))
+flag = 0
+for i in range(2000, -1, -1):
+    if flag == 0:
+        for j in range(2001):
+            if area[j][i] == 1:
+                d = i
+                flag = 1
+                break
+
+print((b-a+1) * (d-c+1))

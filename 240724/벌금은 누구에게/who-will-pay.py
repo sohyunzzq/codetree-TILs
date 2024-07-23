@@ -9,7 +9,7 @@ for i in range(m):
 result = -1
 for i in range(m):
     lst[num[i]] += 1
-    if lst[num[i]] >= 3:
+    if lst[num[i]] >= k:
         result = num[i]
         break
 

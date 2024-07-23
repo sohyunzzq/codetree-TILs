@@ -29,25 +29,16 @@ for i in range(m):
             B.append(j)
         Bnow += int(t)
 
-p = 0
+if len(A) > len(B):
+    for i in range(len(B), len(A)):
+        B.append(B[len(B)-1])
+else:
+    for i in range(len(A), len(B)):
+        A.append(A[len(A)-1])
+
 cnt = 0
 
-if max(len(A), len(B)) == len(A):
-    maxlen = len(A)
-    minlen = len(B)
-    maxrobot = A
-    minrobot = B
-else:
-    maxlen = len(B)
-    minlen = len(A)
-    maxrobot = B
-    minrobot = A
-
-for i in range(minlen):
-    if i >= 1 and A[i] == B[i] and B[i-1] != A[i-1]:
-        cnt += 1
-
-for i in range(minlen, maxlen):
-    if maxrobot[i] == minrobot[minlen - 1]:
+for i in range(1, len(A)):
+    if A[i] == B[i] and B[i-1] != A[i-1]:
         cnt += 1
 print(cnt)

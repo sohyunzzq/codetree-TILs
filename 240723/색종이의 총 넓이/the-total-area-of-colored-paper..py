@@ -11,7 +11,7 @@ for i in range(201):
 
 for i in range(n):
     x, y = map(int, input().split())
-    paste(x, y)
+    paste(x+100, y+100)
 
 cnt = 0
 for i in range(201):

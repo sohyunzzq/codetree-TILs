@@ -13,6 +13,11 @@ for i in range(2001):
 cover(r1x1+1000, r1y1+1000, r1x2+1000, r1y2+1000, 1)
 cover(r2x1+1000, r2y1+1000, r2x2+1000, r2y2+1000, 0)
 
+a = -1
+b = -1
+c = -1
+d = -1
+
 flag = 0
 for i in range(2001):
     if flag == 0:
@@ -49,4 +54,7 @@ for i in range(2000, -1, -1):
                 flag = 1
                 break
 
-print((b-a+1) * (d-c+1))
+if a == -1 or b == -1 or c == -1 or d == -1:
+    print(0)
+else:
+    print((b-a+1) * (d-c+1))

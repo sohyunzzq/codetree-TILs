@@ -16,5 +16,6 @@ for i in range(m):
     lst[num[i]] += 1
     result = check(k)
     if result > 0:
-        print(result)
         break
+
+print(result)

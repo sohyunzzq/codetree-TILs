@@ -12,9 +12,13 @@ lst.sort(key = lambda x: x[0]) #t를 기준으로 정렬함
 
 for i in range(T):
     if inf[lst[i][1]] == 1 and cnt[lst[i][1]] < K: #감염됐고 K번 미만 전염시킴
+        if inf[lst[i][2]] == 1 and cnt[lst[i][2]] < K:
+            cnt[lst[i][2]] += 1
         inf[lst[i][2]] = 1
         cnt[lst[i][1]] += 1
-    if inf[lst[i][2]] == 1 and cnt[lst[i][2]] < K:
+    elif inf[lst[i][2]] == 1 and cnt[lst[i][2]] < K:
+        if inf[lst[i][1]] == 1 and cnt[lst[i][1]] < K:
+            cnt[lst[i][1]] += 1
         inf[lst[i][1]] = 1
         cnt[lst[i][2]] += 1
 

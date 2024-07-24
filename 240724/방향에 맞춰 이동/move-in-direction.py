@@ -15,6 +15,7 @@ for i in range(n):
     else:
         index = 3
     
-    x, y = x + dx[index] * int(num), y + dy[index] * int(num)
+    x += dx[index] * int(num)
+    y += dy[index] * int(num)
 
 print(x, y)

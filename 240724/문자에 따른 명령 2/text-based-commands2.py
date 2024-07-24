@@ -11,7 +11,7 @@ for i in range(len(cmd)):
     elif cmd[i] == "R":
         index = (index + 1) % 4
     else:
-        x += x + dx[index]
-        y += y + dy[index]
+        x = x + dx[index]
+        y = y + dy[index]
 
 print(x, y)

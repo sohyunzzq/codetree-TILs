@@ -10,12 +10,7 @@ n = int(input())
 
 area = []
 for i in range(n):
-    area.append([0] * n)
-
-for i in range(n):
-    temp = input()
-    for j in range(n):
-        area[i][j] = temp[j]
+    area.append(input())
 
 k = int(input())
 if 1 <= k <= 1 * n:
@@ -49,8 +44,3 @@ while True:
     x += dx[dir_num]
     y += dy[dir_num]
     cnt += 1
-
-'''
-/ 0: 1, 1: 0, 2: 3, 3: 2
-\ 0: 3, 1: 2, 2: 1, 3: 0
-'''

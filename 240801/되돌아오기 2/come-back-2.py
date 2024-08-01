@@ -18,7 +18,7 @@ for i in range(len(cmd)):
             break
 
     elif cmd[i] == "L":
-        dir_num = (dir_num - 1) % 4
+        dir_num = (dir_num - 1 + 4) % 4
     else:
         dir_num = (dir_num + 1) % 4
     

@@ -19,6 +19,10 @@ for i in range(19-4):
             ans = area[i][j]
             x, y = i+2, j+2
             break
+        if j >= 4 and i < 19 - 4 and area[i][j] != 0 and area[i][j] == area[i+1][j-1] == area[i+2][j-2] == area[i+3][j-3] == area[i+4][j-4]:
+            ans = area[i][j]
+            x, y = i+2, j-2
+            break
 
 if ans == -1:
     print(0)

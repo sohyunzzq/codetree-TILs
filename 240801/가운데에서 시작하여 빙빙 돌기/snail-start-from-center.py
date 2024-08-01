@@ -12,7 +12,7 @@ dir_num = 3
 for i in range(1, n * n + 1):
     area[x][y] = i
 
-    if x >= n or y >= n:
+    if x >= n or y >= n or n == 1:
         break
     ndir_num = (dir_num + 1) % 4
     nx = x + dx[ndir_num]

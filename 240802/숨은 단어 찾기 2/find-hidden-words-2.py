@@ -23,6 +23,6 @@ for i in range(n):
                 cnt += 1
             if i < n-2 and j >= 2 and lst[i+1][j-1] == lst[i+2][j-2] == "E":
                 cnt += 1
-            if i >= 2 and j >= 2 and lst[i-1][j-1] == lst[i-1][j-1] == "E":
+            if i >= 2 and j >= 2 and lst[i-1][j-1] == lst[i-2][j-2] == "E":
                 cnt += 1
 print(cnt)

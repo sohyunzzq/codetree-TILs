@@ -2,9 +2,9 @@ area = []
 for i in range(19):
     area.append(list(map(int, input().split())))
 
-ans = 0
+ans = -1
 for i in range(19-4):
-    if ans != 0:
+    if ans != -1:
         break
     for j in range(19-4):
         if area[i][j] != 0 and area[i][j] == area[i][j+1] == area[i][j+2] == area[i][j+3] == area[i][j+4]:
@@ -20,5 +20,8 @@ for i in range(19-4):
             x, y = i+2, j+2
             break
 
-print(ans)
-print(x+1, y+1)
+if ans == -1:
+    print(0)
+else:
+    print(ans)
+    print(x+1, y+1)

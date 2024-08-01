@@ -7,17 +7,11 @@ dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 n, t = map(int, input().split())
 
+cmd = input()
+
 area = []
 for i in range(n):
-    area.append([0] * n)
-
-index = 1
-for i in range(n):
-    for j in range(n):
-        area[i][j] = index
-        index += 1
-
-cmd = input()
+    area.append(list(map(int, input().split())))
 
 x, y = n // 2, n // 2
 result = area[x][y]

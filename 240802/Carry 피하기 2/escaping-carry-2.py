@@ -13,10 +13,14 @@ for i in range(n):
                 #print(10, lst[i], lst[j], lst[k])
                 continue
             if lst[i] % 100 + lst[j] % 100 + lst[k] % 100 >= 100:
-                #print(100, lst[i], lst[j], lst[k])
+               # print(100, lst[i], lst[j], lst[k])
                 continue
             if lst[i] % 1000 + lst[j] % 1000 + lst[k] % 1000 >= 1000:
                 #print(1000, lst[i], lst[j], lst[k])
                 continue
+            if lst[i] % 10000 + lst[j] % 10000 + lst[k] % 10000 >= 10000:
+                #print(1000, lst[i], lst[j], lst[k])
+                continue
             result = max(result, lst[i] + lst[j] + lst[k])
+            #print(lst[i] + lst[j] + lst[k])
 print(result)

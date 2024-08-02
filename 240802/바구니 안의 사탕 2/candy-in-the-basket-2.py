@@ -12,4 +12,7 @@ for i in range(101-2*k):
         sum1 += basket[j]
 
     max_val = max(max_val, sum1)
+
+if k >= 51:
+    max_val = sum(basket)
 print(max_val)

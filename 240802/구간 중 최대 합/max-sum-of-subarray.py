@@ -3,7 +3,7 @@ lst = list(map(int, input().split()))
 
 max_val = 0
 
-for i in range(n-k):
+for i in range(n-k+1):
     result = 0
     for j in range(i, i+k):
         result += lst[j]

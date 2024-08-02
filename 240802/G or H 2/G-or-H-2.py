@@ -5,22 +5,22 @@ numlst = []
 for i in range(n):
     num, alpha = input().split()
     lst[int(num)] = alpha
-    numlst.append(int(num))
-
-numlst.sort()
-start=numlst[0]
-end = numlst[n-1]
 
 max_val = 0
 
-for i in range(start, end + 1):
-    g, h = 0, 0
-    for j in range(i, end + 1):
-        if lst[j] == "G":
-            g += 1
-        elif lst[j] == "H":
-            h += 1
-        if (lst[j] == "G" or lst[j] == "H") and (lst[i] == "G" or lst[i] == "H") and (g == h or (g == 0 and h != 0) or (h == 0 and g != 0)):
+for i in range(101):
+    for j in range(i, 101):
+        if lst[i] == 0 or lst[j] == 0:
+            continue
+            
+        g, h = 0, 0
+        for k in range(i, j + 1):
+            if lst[k] == "G":
+                g += 1
+            elif lst[k] == "H":
+                h += 1
+        
+        if g == h or h == 0 or g == 0:
             max_val = max(max_val, abs(j-i))
         
 print(max_val)

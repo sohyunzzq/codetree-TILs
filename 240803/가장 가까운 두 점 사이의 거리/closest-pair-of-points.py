@@ -13,9 +13,6 @@ min_dis = sys.maxsize
 
 for i in range(n):
     for j in range(i + 1, n):
-        if min_dis > distance(lst[i], lst[j]):
-            min_dis = distance(lst[i], lst[j])
-            coor1 = lst[i]
-            coor2 = lst[j]
+        min_dis = min(min_dis, distance(lst[i], lst[j]))
 
 print(min_dis)

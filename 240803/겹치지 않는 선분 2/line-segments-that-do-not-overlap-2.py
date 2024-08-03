@@ -22,11 +22,11 @@ for i in range(n):
                 check[i] = 0
                 check[j] = 0
         elif x1 <= x2 and x3 >= x4: #/\
-            if x1 <= x4 <= x2:
+            if x1 <= x4 <= x2 or x1 <= x3 <= x2:
                 check[i] = 0
                 check[j] = 0
         else: #\/
-            if x2 <= x3 <= x1:
+            if x2 <= x3 <= x1 or x2 <= x4 <= x1:
                 check[i] = 0
                 check[j] = 0
 

@@ -12,6 +12,6 @@ for i in range(n):
         if i == j:
             continue
         temp += lst[j]
-        if temp < b:
+        if temp <= b:
             max_val = max(max_val, j+1)
 print(max_val)

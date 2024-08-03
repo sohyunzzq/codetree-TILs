@@ -8,13 +8,13 @@ def triangle(coor1, coor2, coor3):
 
     if y1 == y2:
         if x1 == x3 or x2 == x3:
-            return abs(x1-x2) * abs(y3)
+            return abs(x1-x2) * abs(y3-y1)
     elif y2 == y3:
         if x2 == x1 or x3 == x1:
-            return abs(x2-x3) * abs(y1)
+            return abs(x2-x3) * abs(y1-y2)
     elif y3 == y1:
         if x3 == x2 or x1 == x2:
-            return abs(x3-x1) * abs(y2)
+            return abs(x3-x1) * abs(y2-y1)
         
     return 0
 

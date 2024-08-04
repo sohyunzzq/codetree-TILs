@@ -1,8 +1,3 @@
-def up(iceberg, height):
-    if iceberg > height:
-        return 1
-    return 0
-
 n = int(input())
 
 iceberg = []
@@ -15,17 +10,13 @@ for i in range(n):
 
 ans = 0
 for i in range(max(iceberg)):
-    check = [0] * n
-    for j in range(n):
-        if iceberg[j] > i:
-            check[j] = 1
-
     cnt = 0
-    p = 0
-    for j in range(n):
-        if check[j] == 1 and p == 0:
+    if iceberg[0] > i:
+        cnt += 1
+
+    for j in range(1, n):
+        if iceberg[j] > i and iceberg[j-1] <= i:
             cnt += 1
-        p = check[j]
     ans = max(ans, cnt)
 
 print(ans)

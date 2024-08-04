@@ -27,12 +27,14 @@ for i in range(s):
 #ate 리스트를 돌며 먹은 카운트 세고 최댓값 구하기
 
 max_val = 0
+answer = [0] * (n+1)
 for i in range(1, m+1):
     if cheese[i] == s: #i번 치즈를 먹은 사람 세기
         cnt = 0
         for j in range(d):
             if ate[j][1] == i:
-                cnt += 1
-        max_val = max(max_val, cnt)
+                answer[ate[j][0]] = 1
+                
+        max_val = max(max_val, sum(answer))
 
 print(max_val)

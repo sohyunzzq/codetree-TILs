@@ -12,13 +12,18 @@ cnt = 0
 for i in range(a, b+1):
     s, n = 1001, 1001
     for j in range(1001):
-        if i == j:
-            continue
         if area[j] == "S":
-            n = min(n, abs(j - i))
+            s = min(s, abs(j-i))
         elif area[j] == "N":
-            s = min(s, abs(j - i))
+            n = min(n, abs(j-i))
+    
     if s <= n:
         cnt += 1
-
 print(cnt)
+'''
+1 2 3 4 5 
+  s     n
+
+1 2 3 4 5 6 7 8 9 10
+s     n            s
+'''

@@ -35,13 +35,3 @@ for i in range(1, m+1):
         answer = max(answer, sum(check))
 
 print(answer)
-
-'''
-1 1 1
-2 1 5
-3 1 3
-1 2 2
-2 2 7
-1 3 4
-1 4 1
-'''

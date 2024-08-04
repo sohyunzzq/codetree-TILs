@@ -12,7 +12,6 @@ for i in range(n):
         if i == j:
             continue
         
-        if i - 3 <= j <= i + 3 and bomb[j] == b:
-            for k in range(i, j):
-                result = max(result, bomb[k])
+        if i - k <= j <= i + k and bomb[j] == b:
+            result = max(result, b)
 print(result)

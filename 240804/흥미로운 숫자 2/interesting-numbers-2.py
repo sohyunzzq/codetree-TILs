@@ -11,12 +11,12 @@ for num in range(x, y+1):
     same = 0 #2개 이상 같은 숫자
     diff = 0 #하나만 다른 숫자
     for i in range(10):
-        if check[i] == 1:
+        if check[i] >= 2:
             same += 1
-        elif check[i] >= 2:
+        elif check[i] == 1:
             diff += 1
     
-    if same + diff == 2:
+    if same == 1 and diff == 1:
         ans += 1
 
 print(ans)

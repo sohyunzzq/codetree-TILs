@@ -2,12 +2,11 @@ k, n = map(int, input().split())
 
 lst = []
 for i in range(k):
-    lst.append("".join(input().split()))
+    lst.append(list(map(int, input().split())))
 
 #첫 번째 줄에서 모든 경우의 수를 찾기
 #4번이 1번보다 항상 높은지 아랫줄 순회
-#find를 써서, 결과값이 항상 > 이어야 함
-#만약 < 이 나오면 다음 경우의 수를 찾으러 감
+#만약 4가 먼저 나오면 다음 줄, 1이 먼저 나오면 다음 조합
 #그렇게 끝까지 다 찾았으면 카운트 증가
 
 cnt = 0
@@ -17,13 +16,16 @@ for i in range(n):
         check = True
         right = lst[0][j] #1, 2, 3 / 2, 3 / 3
 
-        for m in range(1, k):
-            if lst[m].find(left) > lst[m].find(right):
-                check = False
-                break
+        for m in range(1, k): #라인 순회
+            for a in range(n):
+                if lst[m][a] == left:
+                    break
+                elif lst[m][a] == right:
+                    check = False
+                    break
+        
         if check:
             cnt += 1
-
 print(cnt)
         
 

@@ -27,16 +27,14 @@ for i in range(1, m+1):
         cheese[i] = 1
 
 answer = 0
-check = [0] * (n+1)
 for i in range(1, m+1):
-    cnt = 0
-    for j in range(a):
-        if ate[j][1] == i:
-            check[ate[j][0]] = 1
-    answer = max(answer, sum(check))
+    if cheese[i] == 1:
+        for j in range(a):
+            if ate[j][1] == i:
+                check[ate[j][0]] = 1
+        answer = max(answer, sum(check))
 
 print(answer)
-
 
 '''
 1 1 1

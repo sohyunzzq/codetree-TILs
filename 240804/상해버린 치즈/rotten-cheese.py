@@ -15,12 +15,16 @@ for i in range(s): #몇 번째 사람(p)이 언제(t초) 아팠는지
 
 cheese = [0] * (m+1)
 
+#같은 치즈를 2번 이상 먹을 수도 있음
+#다른 치즈일 때만 카운트를 올려주기 위해 정렬 후 진행
+
+ate.sort(key = lambda x: (x[0], x[1]))
 for i in range(s):
     p = sick[i][0]
     time = sick[i][1]
 
     for j in range(d):
-        if p == ate[j][0] and ate[j][2] < time:
+        if p == ate[j][0] and (j == 0 or ate[j][1] != ate[j-1][1]) and ate[j][2] < time:
             cheese[ate[j][1]] += 1 #상한 치즈 가능성
 
 #최종 치즈 리스트를 바깥 포문

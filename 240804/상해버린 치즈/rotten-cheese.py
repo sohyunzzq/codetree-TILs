@@ -1,44 +1,49 @@
-n, m, d, s = map(int, input().split())
+n, m, a, b = map(int, input().split())
 
 ate = []
-for i in range(d): #몇 번째 사람(p)이 몇 번째 치즈(m)를 언제(t초)
+for i in range(a): #사람, 치즈, 언제
     ate.append(list(map(int, input().split())))
 
-sick = []
-for i in range(s): #몇 번째 사람(p)이 언제(t초) 아팠는지
-    sick.append(list(map(int, input().split())))
+sick = {}
+for i in range(b): #사람, 언제
+    p, t = map(int, input().split())
+    sick[p] = t
 
-#1번 사람이 3초에 아팠으면 3초부터 먹은 치즈들은 후보가 아님
-#치즈 리스트에서 1번 사람이 3초 전에 먹은 것은 다 1을 더함
-#다 돌고 치즈 리스트값이 s값과 같으면 그게 최종
-#치즈를 m개 먹고 무조건 치즈 번호는 연속됨
+ate.sort(key = lambda x: (x[1], x[0], x[2]))
+
+#1번 사람이 3초부터 아팠다면, 3초 이후에 먹은 치즈는 절대 상한 게 아님
+#1번으로 인해 1, 2, 4 중 하나인데 2번은 4번을 안 먹고도 아팠음 이걸 어떻게 알아낼지
+#치즈를 돌리면서 순회를 할까?
+#1번 치즈 - 1번이 아프기 전 먹음, 2번이 아프기 전 먹음 -> 후보에 올리기
 
 cheese = [0] * (m+1)
 
-#같은 치즈를 2번 이상 먹을 수도 있음
-#다른 치즈일 때만 카운트를 올려주기 위해 정렬 후 진행
-
-ate.sort(key = lambda x: (x[0], x[1]))
-for i in range(s):
-    p = sick[i][0]
-    time = sick[i][1]
-
-    for j in range(d):
-        if p == ate[j][0] and (j == 0 or ate[j][1] != ate[j-1][1]) and ate[j][2] < time:
-            cheese[ate[j][1]] += 1 #상한 치즈 가능성
-
-#최종 치즈 리스트를 바깥 포문
-#ate 리스트를 돌며 먹은 카운트 세고 최댓값 구하기
-
-max_val = 0
-answer = [0] * (n+1)
 for i in range(1, m+1):
-    if cheese[i] == s: #i번 치즈를 먹은 사람 세기
-        cnt = 0
-        for j in range(d):
-            if ate[j][1] == i:
-                answer[ate[j][0]] = 1
-                
-        max_val = max(max_val, sum(answer))
+    check = [0] * (n+1)
+    for j in range(a):
+        if ate[j][1] == i and ate[j][0] in sick and ate[j][2] < sick[ate[j][0]]:
+            check[ate[j][0]] = 1
+    if sum(check) == b:
+        cheese[i] = 1
 
-print(max_val)
+answer = 0
+check = [0] * (n+1)
+for i in range(1, m+1):
+    cnt = 0
+    for j in range(a):
+        if ate[j][1] == i:
+            check[ate[j][0]] = 1
+    answer = max(answer, sum(check))
+
+print(answer)
+
+
+'''
+1 1 1
+2 1 5
+3 1 3
+1 2 2
+2 2 7
+1 3 4
+1 4 1
+'''

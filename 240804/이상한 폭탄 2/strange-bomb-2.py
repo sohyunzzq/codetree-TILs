@@ -8,10 +8,10 @@ for i in range(n):
 explode = [0] * n
 for i in range(n):
     b = bomb[i]
-    for j in range(n):
-        if i == j:
-            continue
+    for j in range(i+1, n):
+        if j - i > k:
+            break
         
-        if i - k <= j <= i + k and bomb[j] == b:
+        if bomb[j] == b:
             result = max(result, b)
 print(result)

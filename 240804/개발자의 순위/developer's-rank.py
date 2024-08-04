@@ -9,6 +9,8 @@ for i in range(k):
 #만약 4가 먼저 나오면 다음 줄, 1이 먼저 나오면 다음 조합
 #그렇게 끝까지 다 찾았으면 카운트 증가
 
+#lst.index(1) 이런 식으로 인덱스를 찾을 수 있음
+
 cnt = 0
 for i in range(n):
     left = lst[0][i] #4, 1, 2, 3
@@ -17,20 +19,8 @@ for i in range(n):
         right = lst[0][j] #1, 2, 3 / 2, 3 / 3
 
         for m in range(1, k): #라인 순회
-            for a in range(n):
-                if lst[m][a] == left:
-                    break
-                elif lst[m][a] == right:
-                    check = False
-                    break
-        
+            if lst[m].index(left) > lst[m].index(right):
+                check = False        
         if check:
             cnt += 1
 print(cnt)
-        
-
-'''
-4 1 2 3
-4 1 3 2
-4 2 1 3
-'''

@@ -15,7 +15,7 @@ for i in range(n):
 #000을 가지고 xxx, xxy, xyy, yyy 전부 다 검사를 할 거임
 #000 - xxx - 좌표 이렇게 들어가서, 모든 좌표가 통과되면 result는 1
 
-result = 0
+ans = 0
 
 for i in range(11):
     for j in range(11):

@@ -14,26 +14,27 @@ for i in range(3): #가로 순회
     check = [0] * 10
     for j in range(3):
         check[int(lst[i][j])] = 1
+
     if sum(check) == 2:
         temp = []
+        print(check)
         for j in range(10):
             if check[j] != 0:
-                temp.append(check[j])
+                temp.append(j)
         if temp not in team:
             ans += 1
             team.append(temp)
-        
-
 
 for i in range(3): #세로 순회
     check = [0] * 10
     for j in range(3):
         check[int(lst[j][i])] = 1
+
     if sum(check) == 2:
         temp = []
         for j in range(10):
             if check[j] != 0:
-                temp.append(check[j])
+                temp.append(j)
         if temp not in team:
             ans += 1
             team.append(temp)
@@ -41,11 +42,12 @@ for i in range(3): #세로 순회
 check = [0] * 10
 for i in range(3):
     check[int(lst[i][i])] = 1
+
 if sum(check) == 2:
     temp = []
     for j in range(10):
         if check[j] != 0:
-            temp.append(check[j])
+            temp.append(j)
     if temp not in team:
         ans += 1
         team.append(temp)
@@ -53,11 +55,12 @@ if sum(check) == 2:
 check = [0] * 10
 for i in range(3):
     check[int(lst[2-i][i])] = 1
+
 if sum(check) == 2:
     temp = []
     for j in range(10):
         if check[j] != 0:
-            temp.append(check[j])
+            temp.append(j)
     if temp not in team:
         ans += 1
         team.append(temp)

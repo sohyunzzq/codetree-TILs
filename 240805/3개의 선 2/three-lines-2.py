@@ -28,7 +28,6 @@ for i in range(11):
             
             if check:
                 ans = 1
-                break
 
             check = True
             for x, y in coor:
@@ -38,7 +37,6 @@ for i in range(11):
             
             if check:
                 ans = 1
-                break
 
             for x, y in coor:
                 if x == i or y == j or y == k:
@@ -47,7 +45,6 @@ for i in range(11):
 
             if check:
                 ans = 1
-                break
             
             for x, y in coor:
                 if y == i or y == j or y == k:
@@ -56,6 +53,5 @@ for i in range(11):
             
             if check:
                 ans = 1
-                break
 
 print(ans)

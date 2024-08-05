@@ -17,7 +17,6 @@ for i in range(3): #가로 순회
 
     if sum(check) == 2:
         temp = []
-        print(check)
         for j in range(10):
             if check[j] != 0:
                 temp.append(j)

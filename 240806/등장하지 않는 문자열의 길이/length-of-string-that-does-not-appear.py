@@ -21,8 +21,8 @@ for i in range(n):
                 if cnt >= 2:
                     check[len(temp)] = 1
                     break
-        
-        if cnt == 1 and check[len(temp)] != 1:
-            ans = min(ans, len(temp)) 
+
+    if cnt == 1 and check[len(temp)] != 1:
+        ans = min(ans, len(temp)) 
                 
 print(ans)

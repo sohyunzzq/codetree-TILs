@@ -28,7 +28,7 @@ for i in range(n):
                 dis += 1
             
             min_dis = min(min_dis, dis)
-            
-        ans = max(ans, min_dis)
+    ans = max(ans, min_dis)
+
     seat[i] = 0
 print(ans)

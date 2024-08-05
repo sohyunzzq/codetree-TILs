@@ -27,7 +27,8 @@ for i in range(n):
                     break
                 dis += 1
             
-            min_dis = min(min_dis, dis)
+        min_dis = min(min_dis, dis)
+    
     ans = max(ans, min_dis)
 
     seat[i] = 0

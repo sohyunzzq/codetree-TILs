@@ -1,7 +1,7 @@
 n = int(input())
 lst = list(map(int, input().split()))
 
-ans = 100
+ans = 100 * n
 for i in range(n):
     lst[i] *= 2 #i를 두 배
 

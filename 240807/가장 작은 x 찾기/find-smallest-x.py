@@ -16,3 +16,4 @@ for x in range(1, 10000 + 1):
             break
     if check:
         print(ans)
+        break

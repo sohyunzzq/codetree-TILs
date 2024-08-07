@@ -19,6 +19,6 @@ lst = list(map(int, input().split()))
 
 ans = 100
 for i in range(n):
-    if jump(i):
-        ans = min(ans, jump(i))
+    if jump(lst[i]):
+        ans = min(ans, jump(lst[i]))
 print(ans)

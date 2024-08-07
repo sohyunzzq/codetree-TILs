@@ -1,24 +1,16 @@
 def jump(x):
-    tmp = [0, n-1]
-    for index, item in enumerate(lst):
-        if item <= x and index not in tmp:
-            tmp.append(index)
-    tmp.sort()
+    index = 0
+    for i in range(1, n):
+        if lst[i] <= x:
+            if i - index > k:
+                return False
+            index = i
+    return True
     
-    for i in range(len(tmp) - 1):
-        if tmp[i+1] - tmp[i] > k:
-            return False
-    
-    maxi = 0
-    for i in range(len(tmp)):
-        maxi = max(maxi, lst[tmp[i]])
-    return maxi
-
 n, k = map(int, input().split())
 lst = list(map(int, input().split()))
 
-ans = 100
-for i in range(n):
-    if jump(lst[i]):
-        ans = min(ans, jump(lst[i]))
-print(ans)
+for i in range(max(lst[0], lst[n-1]), 100 + 1):
+    if jump(i):
+        print(i)
+        break

@@ -8,7 +8,7 @@ for i in range(n):
 #1 1 3 4 6
 #1 1 3 4 6 7 8 11 15 일 때 개수 세는 법
 #3부터 11까지 센다 → 6개임
-#인덱스 2, 7이므로 max_val - min_val + 1
+#인덱스 2, 7이므로 j - i + 1
 
 lst.sort()
 
@@ -19,6 +19,6 @@ for i in range(n): #최솟값 고정
         max_val = lst[j]
         if max_val > min_val + k:
             continue
-        ans = max(ans, max_val - min_val + 1)
+        ans = max(ans, j - i + 1)
 
 print(ans)

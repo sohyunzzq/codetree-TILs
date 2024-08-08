@@ -11,7 +11,7 @@ lst = list(map(int, input().split()))
 lst.sort(reverse = True)
 
 ans = 0
-for i in range(n+1):
+for i in range(1, n+1):
     cnt = 0
     down = l
     for j in range(n):
@@ -23,6 +23,8 @@ for i in range(n+1):
         elif lst[j] + 1 >= i:
             cnt += 1
             down -= 1
+
     if cnt >= i:
-        ans = max(ans, i)
+        ans = i
+        
 print(ans)

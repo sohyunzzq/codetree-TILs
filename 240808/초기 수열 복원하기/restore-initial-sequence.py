@@ -1,10 +1,17 @@
 def check(i):
     tmp = [i]
+    checklst = [0] * (n+1)
+
     for j in range(n-1):
         num = lst[j] - tmp[j]
-        if num in tmp or num > n:
+        if num > n:
             return False
         tmp.append(num)
+        checklst[num] = 1
+    
+    if sum(checklst) != n - 1:
+        return False
+    
     return tmp
 
 

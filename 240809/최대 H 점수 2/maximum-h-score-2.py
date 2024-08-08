@@ -11,7 +11,7 @@ lst = list(map(int, input().split()))
 lst.sort(reverse = True)
 
 ans = 0
-for i in range(n):
+for i in range(n+1):
     cnt = 0
     down = l
     for j in range(n):

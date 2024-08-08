@@ -4,7 +4,7 @@ def check(i):
 
     for j in range(n-1):
         num = lst[j] - tmp[j]
-        if num > n:
+        if num > n: #원래는 checklst 없이 여기서 in 연산 썼는데, in은 최악의 경우 O(n)이 돼서 이렇게 함
             return False
         tmp.append(num)
         checklst[num] = 1

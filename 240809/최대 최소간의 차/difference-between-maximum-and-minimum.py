@@ -8,7 +8,7 @@ lst = list(map(int, input().split()))
 #i+k보다 크면 i+k까지 낮춰줌
 
 ans = sys.maxsize
-for i in range(10000):
+for i in range(10001):
     cost = 0
     for j in range(n):
         if lst[j] < i:

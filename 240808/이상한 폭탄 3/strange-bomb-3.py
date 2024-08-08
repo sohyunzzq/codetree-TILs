@@ -4,32 +4,30 @@ bomb = []
 for i in range(n):
     bomb.append(int(input()))
 
-#검사한 번호는 리스트에 넣어서 다시 검사하지 않게
-#b 기준 앞뒤 k 이내에 같은 수가 있는지 세서 있으면 1 더함
-#범위 넘치는 거 주의하기
-#ans와 num을 이용해서 폭탄 번호도 기억하기
+#해당 번호가 몇 번 터졌는지 기록할 리스트 (크기가 이 정도는 괜찮은 듯)
+#폭탄이 이미 터졌는지 기록할 리스트
 
-check = []
-ans = 0
-maxi = 1
+numlst = [0] * (1000000 + 1) #번호를 체크
+check = [0] * n #인덱스를 체크
+
 for i in range(n):
-    b = bomb[i]
-    if b in check: #이미 검사한 숫자
+    if check[i] == 1: #이미 터짐
         continue
+    for j in range(i+1, n):
+        if check[j] == 1: #이미 터짐
+            continue
+        if j > i + k: #범위 초과
+            break
+        
+        if bomb[i] == bomb[j]:
+            numlst[bomb[i]] += 1
+            check[i], check[j] = 1, 1
 
-    cnt = 0
-    for j in range(n):
-        if bomb[j] == b:
-            for m in range(j-k, j+k+1):
-                if 0 <= m < n and bomb[m] == b and j != m:
-                    cnt += 1
+maxi = 1
+index = 0
+for i in range(1000000 + 1):
+    if numlst[i] >= maxi:
+        maxi = numlst[i]
+        index = i
 
-    if cnt > maxi:
-        maxi = cnt
-        ans = b
-    elif cnt == maxi:
-        ans = max(ans, b)
-    
-    check.append(b)
-
-print(ans)
+print(index)

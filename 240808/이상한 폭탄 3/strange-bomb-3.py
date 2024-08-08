@@ -11,7 +11,7 @@ for i in range(n):
 
 check = []
 ans = 0
-maxi = 0
+maxi = 1
 for i in range(n):
     b = bomb[i]
     if b in check: #이미 검사한 숫자
@@ -24,12 +24,11 @@ for i in range(n):
                 if 0 <= m < n and bomb[m] == b and j != m:
                     cnt += 1
 
-    if cnt >= 1:
-        if cnt > maxi:
-            maxi = cnt
-            ans = b
-        elif cnt == maxi:
-            ans = max(ans, b)
+    if cnt > maxi:
+        maxi = cnt
+        ans = b
+    elif cnt == maxi:
+        ans = max(ans, b)
     
     check.append(b)
 

@@ -33,18 +33,3 @@ for i in range(n):
     check.append(b)
 
 print(ans)
-
-'''
-7
-2
-6
-2
-2
-7
-7
-6
-6
-6
-2
-2
-'''

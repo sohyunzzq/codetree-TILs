@@ -21,10 +21,10 @@ for i in range(n):
     for j in range(n):
         if bomb[j] == b:
             for m in range(j-k, j+k+1):
-                if 0 <= m < n and bomb[m] == b:
+                if 0 <= m < n and bomb[m] == b and j != m:
                     cnt += 1
 
-    if cnt >= 2:
+    if cnt >= 1:
         if cnt > maxi:
             maxi = cnt
             ans = b

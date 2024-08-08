@@ -24,11 +24,12 @@ for i in range(n):
                 if 0 <= m < n and bomb[m] == b:
                     cnt += 1
 
-    if cnt > maxi:
-        maxi = cnt
-        ans = b
-    elif cnt == maxi:
-        ans = max(ans, b)
+    if cnt >= 2:
+        if cnt > maxi:
+            maxi = cnt
+            ans = b
+        elif cnt == maxi:
+            ans = max(ans, b)
     
     check.append(b)
 

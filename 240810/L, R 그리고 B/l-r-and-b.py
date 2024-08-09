@@ -15,7 +15,7 @@ for i in range(10):
 
 ans = abs(lx - bx) + abs(ly - by) - 1
 
-if (bx == lx and rx == bx) or (by == ly and ry == by):
+if (bx == lx and rx == bx and (ly <= ry <= by or by <= ry <= ly)) or ((by == ly and ry == by) and (bx <= rx <= lx or lx <= rx <= bx)):
     ans += 2 #ㅣ 모양인데 가운데 가로막음
 #elif #ㅡ 모양인데 가운데 가로막음
 

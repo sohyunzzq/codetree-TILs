@@ -5,4 +5,4 @@ a, b, c = map(int, input().split())
 if a + 1 == b and b + 1 == c:
     print(0)
 else:
-    print(max(b-a, c-b) - 1)
+    print(max(b-a, c-b) - 1) #직접 해보면 됨

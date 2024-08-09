@@ -5,11 +5,15 @@ lst = list(input().split())
 
 cnt = 0
 for i in range(n): #알파벳
-    for j in range(n): #리스트에 저장된 문자
-        if alpha[i] == lst[j]:
-            for k in range(j-i, 0, -1):
-                lst[k+i], lst[k+i-1] = lst[k+i-1], lst[k+i]
-                cnt += 1
+    a = alpha[i]
+    
+    for j in range(n):
+        if lst[j] == a:
+            index = j
+    
+    for j in range(index - i):
+        lst[index-j], lst[index-j-1] = lst[index-j-1], lst[index-j]
+        cnt += 1
 
 print(cnt)
 '''

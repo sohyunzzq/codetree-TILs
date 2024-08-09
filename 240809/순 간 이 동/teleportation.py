@@ -6,6 +6,6 @@ a, b, x, y = map(int, input().split())
 
 ans1 = b - a
 ans2 = abs(x-a) + abs(b-y)
-ans3 = abs(x-b) + abs(a-y)
+ans3 = abs(y-a) + abs(b-x)
 
 print(min(ans1, ans2, ans3))

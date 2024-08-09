@@ -8,7 +8,7 @@ def talk():
     
     for i in range(p-1):
         if int(lst[i][1]) == int(lst[p-1][1]):
-            read[ord(lst[i][0])] = 1
+            read[ord(lst[i][0]) - 65] = 1
     
     for i in range(n):
         if read[i] == 0:

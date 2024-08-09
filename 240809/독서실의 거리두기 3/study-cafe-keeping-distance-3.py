@@ -15,7 +15,7 @@ for i in range(n):
                 s1 = i
                 s2 = j
             break
-seat[(j-i)//2] = 1
+seat[(s2-s1)//2] = 1
 
 ans = n
 for i in range(n):

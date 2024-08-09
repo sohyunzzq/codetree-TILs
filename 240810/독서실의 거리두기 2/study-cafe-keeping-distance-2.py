@@ -5,14 +5,15 @@ for i in range(n):
 
 #가장 먼 곳의 거리 구하기
 maxi = 0
-s1, s2 = 0, 0
+s1, s2 = -1, -1
 for i in range(n):
     for j in range(i+1, n):
         if seat[i] == 1 and seat[j] == 1:
             if j - i > maxi:
                 maxi = j - i
                 s1, s2 = i, j
-                break
+
+            break
 
 mini1, mini2, mini3 = 0, 0, 0
 
@@ -36,7 +37,7 @@ if seat[n-1] == 0:
                 mini2 = min(mini2, j - i)
     seat[n-1] = 0
 
-if s1 and s2:
+if s1 != -1:
     seat[s1 + (s2-s1) // 2] = 1
 
     mini3 = n

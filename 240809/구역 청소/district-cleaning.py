@@ -1,11 +1,7 @@
 a, b = map(int, input().split())
 c, d = map(int, input().split())
 
-clean = [0] * 101
-
-for i in range(a, b):
-    clean[i] = 1
-for i in range(c, d):
-    clean[i] = 1
-
-print(sum(clean))
+if b < c or d < a: #안 겹침
+    print(b-a + c-d)
+else: #겹칩
+    print(max(b, d) - min(a, c))

@@ -19,4 +19,4 @@ if val >= 1:
 if val == -1 or cnt >= 2:
     print(-1)
 else:
-    print(answer)
+    print(answer+1)

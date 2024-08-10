@@ -1,8 +1,6 @@
 n = int(input())
 lst = list(map(int, input().split()))
 
-#두 수의 차이의 최솟값이 최대가 되도록
-
 lst.sort()
 
 mini = max(lst)

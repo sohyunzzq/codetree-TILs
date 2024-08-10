@@ -10,7 +10,3 @@ for i in range(n):
     mini = min(mini, lst[i + n] - lst[i])
 
 print(mini)
-
-
-#2 5 7 9 10 15
-#55 60 61 62 63 64 76 77

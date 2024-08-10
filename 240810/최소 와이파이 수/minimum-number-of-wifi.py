@@ -7,15 +7,14 @@ lst = list(map(int, input().split()))
 #   -   -    -  -  와이파이 설치한 곳
 #  === ===  ====== 와이파이 가능한 곳 [i, i+2*m]
 
-#110111
-#===
-
-wifi = [0] * n
 ans = 0
-for i in range(n):
-    if lst[i] == 1 and wifi[i] == 0:
+i = 0
+while True:
+    if i >= n:
+        break
+
+    if lst[i] == 1:
         ans += 1
-        for j in range(i, i+2*m + 1):
-            if 0 <= j < n:
-                wifi[j] = 1
+        i += 2 * m
+    i += 1
 print(ans)

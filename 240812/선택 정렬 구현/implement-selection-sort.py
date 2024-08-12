@@ -2,13 +2,12 @@ n = int(input())
 lst = list(map(int, input().split()))
 
 for i in range(n):
-    mini = lst[i]
+    mini = i
     for j in range(i+1, n):
-        if lst[j] < mini:
-            mini = lst[j]
-            index = j
+        if lst[j] < lst[mini]:
+            mini = j
     
-            lst[i], lst[index] = lst[index], lst[i]
+    lst[i], lst[mini] = lst[mini], lst[i]
 
 for num in lst:
     print(num, end = " ")

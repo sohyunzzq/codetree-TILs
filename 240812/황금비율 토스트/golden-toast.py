@@ -29,6 +29,8 @@ class DoublyLinkedList:
             self.tail.prev = new_node
     
     def erase(self, node):
+        ret = node.next
+
         if node == self.begin(): #head 삭제
             tmp = self.head
             self.head.next.prev = None
@@ -39,6 +41,8 @@ class DoublyLinkedList:
             node.next.prev = node.prev
             node.prev = None
             node.next = None
+        
+        return ret
     
     def insert(self, node, ndata):
         if node == self.begin():
@@ -84,7 +88,7 @@ for i in range(m):
             it = it.next
     elif cmd == "D":
         if it != DLL.end():
-            DLL.erase(it)
+            it = DLL.erase(it)
     else:
         DLL.insert(it, c)
 

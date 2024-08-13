@@ -29,5 +29,5 @@ for i in range(n):
 
 heap_sort(lst, n)
 
-for i in range(1, n+1):
-    print(lst[i], end = " ")
+for num in lst[1:]:
+    print(num, end = " ")

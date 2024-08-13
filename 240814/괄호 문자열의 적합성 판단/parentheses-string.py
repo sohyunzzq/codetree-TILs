@@ -21,17 +21,20 @@ s = Stack()
 
 string = input()
 
-ans = "No"
+ans = "Yes"
 for c in string:
     if c == "(":
         s.push("(")
     else:
         if s.empty():
+            ans = "No"
             break
         else:
             s.pop()
 
-if s.empty():
+if s.empty() and ans != "No":
     ans = "Yes"
+else:
+    ans = "No"
 
 print(ans)

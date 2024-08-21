@@ -5,30 +5,34 @@ for i in range(n):
 
 ans = 0
 
+cnt = 0
 for i in range(n):
-    num = 0
+    num = lst[i][0]
     cnt = 1
-    for j in range(n):
-        if num == lst[i][j]:
+    for j in range(1, n):
+        if lst[i][j] == num:
             cnt += 1
+            if cnt == m:
+                ans += 1
         else:
             num = lst[i][j]
             cnt = 1
-
-        if cnt >= m:
-            ans += 1
-
+    
 for i in range(n):
-    num = 0
+    num = lst[0][i]
     cnt = 1
-    for j in range(n):
-        if num == lst[j][i]:
+    for j in range(1, n):
+        if lst[j][i] == num:
             cnt += 1
+            if cnt == m:
+                ans += 1
         else:
-            num = lst[j][i]
+            num = lst[i]
             cnt = 1
 
-        if cnt >= m:
-            ans += 1
-
 print(ans)
+'''
+1 2 3 4 5
+1 4 4
+1 5 6
+'''

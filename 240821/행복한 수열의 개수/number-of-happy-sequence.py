@@ -5,32 +5,34 @@ for i in range(n):
 
 ans = 0
 
-cnt = 0
-for i in range(n):
-    num = lst[i][0]
-    cnt = 1
-    for j in range(1, n):
-        if lst[i][j] == num:
-            cnt += 1
-            if cnt == m:
-                ans += 1
-        else:
-            num = lst[i][j]
-            cnt = 1
+if m == 1:
+    print(2 * n)
+else:
+    for i in range(n):
+        num = lst[i][0]
+        cnt = 1
+        for j in range(1, n):
+            if lst[i][j] == num:
+                cnt += 1
+                if cnt == m :
+                    ans += 1
+            else:
+                num = lst[i][j]
+                cnt = 1
     
-for i in range(n):
-    num = lst[0][i]
-    cnt = 1
-    for j in range(1, n):
-        if lst[j][i] == num:
-            cnt += 1
-            if cnt == m:
-                ans += 1
-        else:
-            num = lst[i]
-            cnt = 1
+    for i in range(n):
+        num = lst[0][i]
+        cnt = 1
+        for j in range(1, n):
+            if lst[j][i] == num:
+                cnt += 1
+                if cnt == m:
+                   ans += 1
+            else:
+                num = lst[i]
+                cnt = 1
 
-print(ans)
+    print(ans)
 '''
 1 2 3 4 5
 1 4 4

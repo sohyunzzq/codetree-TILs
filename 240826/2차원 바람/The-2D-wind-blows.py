@@ -68,7 +68,11 @@ for i in range(q):
     shift(r1, c1, r2, c2)
     edit(r1, c1, r2, c2)
 
-for row in new_grid:
+    for i in range(n):
+        for j in range(m):
+            grid[i][j] = new_grid[i][j]
+
+for row in grid:
     for col in row:
         print(col, end = " ")
     print()

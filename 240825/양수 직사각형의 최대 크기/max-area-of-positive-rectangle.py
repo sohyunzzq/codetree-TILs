@@ -19,4 +19,8 @@ area = []
 for i in range(n):
     area.append(list(map(int, input().split())))
 
-print(rectangle())
+ans = rectangle()
+if ans == 0:
+    print(-1)
+else:
+    print(ans)

@@ -42,7 +42,6 @@ def down(index, direction):
         direction = dict1[direction]
         shift(grid[index], direction)
 
-
 n, m, q = map(int, input().split())
 grid = []
 for i in range(n):

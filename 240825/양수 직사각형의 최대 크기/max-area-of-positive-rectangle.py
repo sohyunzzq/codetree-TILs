@@ -1,7 +1,7 @@
 def check(x1, y1, x2, y2):
     for i in range(x1, x2+1):
         for j in range(y1, y2+1):
-            if area[i][j] < 0:
+            if area[i][j] <= 0:
                 return 0
     return (x2 - x1 + 1) * (y2 - y1 + 1)
 

@@ -5,7 +5,7 @@ def shift(lst, tmp):
 
 n, t = map(int, input().split())
 tri = []
-for i in range(n):
+for i in range(3):
     tri.append(list(map(int, input().split())))
 t %= (3 * n)
 

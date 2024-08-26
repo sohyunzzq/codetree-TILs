@@ -10,6 +10,8 @@ def RLE(string):
         if string[i] != string[i+1]:
             cnt += 1
     
+    if cnt == 1 and length == 10:
+        return 3
     return cnt * 2
 
 
@@ -19,18 +21,10 @@ def RLE(string):
 string = input()
 length = len(string)
 
-ans = 10
+ans = 20
 
-if length == 10:
-    for i in range(length-1):
-        if string[i] != string[i+1]:
-            break
-        
-        ans = 3
-
-if ans != 3:
-    for i in range(length):
-        string = shift(string)
-        ans = min(ans, RLE(string))
+for i in range(length):
+    string = shift(string)
+    ans = min(ans, RLE(string))
 
 print(ans)

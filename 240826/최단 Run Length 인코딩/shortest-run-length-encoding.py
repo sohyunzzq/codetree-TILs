@@ -14,16 +14,12 @@ def RLE(string):
         return 3
     return cnt * 2
 
-
-
-
-
 string = input()
 length = len(string)
 
-ans = 20
+ans = RLE(string)
 
-for i in range(length):
+for i in range(length - 1):
     string = shift(string)
     ans = min(ans, RLE(string))
 

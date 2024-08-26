@@ -19,19 +19,18 @@ def RLE(string):
 string = input()
 length = len(string)
 
-ans = RLE(string)
+ans = 10
 
 if length == 10:
     for i in range(length-1):
-        if string[i] == string[i+1]:
-            continue
-        else:
+        if string[i] != string[i+1]:
             break
         
         ans = 3
 
-for i in range(length - 1):
-    string = shift(string)
-    ans = min(ans, RLE(string))
+if ans != 3:
+    for i in range(length):
+        string = shift(string)
+        ans = min(ans, RLE(string))
 
 print(ans)

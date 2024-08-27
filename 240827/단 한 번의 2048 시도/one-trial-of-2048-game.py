@@ -38,8 +38,6 @@ def rotate(dr, grid):
 
     return grid
 
-
-
 dict1 = {"D": 0, "L": 3, "U": 2, "R": 1}
 
 grid = []
@@ -52,12 +50,13 @@ dr = dict1[input()]
 
 #dict1[dr]만큼 시계 방향으로 회전시키고 떨구기
 
-grid = rotate(dr, grid)
+grid = rotate(dr, grid) #시계 방향으로 돌리기
+
 grid = slide(dr)
 grid = combine(dr)
 grid = slide(dr)
-grid = rotate(4-dr, grid)
 
+grid = rotate(4-dr, grid) #반시계 방향으로 돌리기
 
 for row in grid:
     for col in row:

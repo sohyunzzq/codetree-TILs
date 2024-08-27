@@ -4,7 +4,7 @@ def get_end(start, col):
             return i - 1
     return n-1
 
-def bomb():
+def bomb(grid):
     for col in range(n):
         for start in range(n):
             if grid[start][col] == 0:
@@ -16,8 +16,9 @@ def bomb():
             if cnt >= m:
                 for i in range(start, end + 1):
                     grid[i][col] = 0
+    return grid
 
-def drop():
+def drop(grid):
     temp = []
     for i in range(n):
         temp.append([0] * n)
@@ -30,7 +31,7 @@ def drop():
                 index -= 1
     return temp
 
-def rotate():
+def rotate(grid):
     temp = []
     for i in range(n):
         temp.append([0] * n)
@@ -40,25 +41,38 @@ def rotate():
             temp[row][col] = grid[n-col-1][row]
     return temp
 
-
-
-
-
-
-
-
-
 n, m, k = map(int, input().split())
 grid = []
 for i in range(n):
     grid.append(list(map(int, input().split())))
 
 for i in range(k):
-    bomb()
-    grid = drop()
-    grid = rotate()
-    grid = drop()
-    bomb()
+    grid = bomb(grid)
+    grid = drop(grid)
+
+    while True:
+        grid2 = bomb(grid)
+        grid2 = drop(grid2)
+
+        if grid == grid2:
+            grid = grid2
+            break
+
+        grid = grid2
+    grid = rotate(grid)
+    grid = drop(grid)
+
+
+while True:
+    grid2 = bomb(grid)
+    grid2 = drop(grid2)
+
+    if grid == grid2:
+        grid = grid2
+        break
+
+    grid = grid2
+
 
 cnt = 0
 for row in grid:

@@ -1,23 +1,26 @@
+def get_end_index(bomb, length, start_index):
+    for i in range(start_index, length):
+        if bomb[start_index] != bomb[i]:
+            return i-1
+    
+    return length - 1
+
+
 def explosion(bomb):
     length = len(bomb)
     
-    for i in range(length):
-        cnt = 0
-        if bomb[i] == 0:
+    for start_index in range(length):
+        if bomb[start_index] == 0:
             continue
-        for j in range(i, length):
-            if bomb[i] != bomb[j]:
-                if cnt >= m:
-                    for k in range(i, j):
-                        bomb[k] = 0
-                break
-            
-            cnt += 1
-            if bomb[i] == bomb[j] and j == length - 1:
-                if cnt >= m:
-                    for k in range(i, j+1):
-                        bomb[k] = 0
-            
+
+
+        end_index = get_end_index(bomb, length, start_index)
+
+        cnt = end_index - start_index + 1
+        if cnt >= m:
+            for i in range(start_index, end_index+1):
+                bomb[i] = 0 
+
     return bomb
         
 def pull(bomb):

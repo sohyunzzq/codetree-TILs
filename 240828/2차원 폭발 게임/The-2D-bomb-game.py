@@ -58,6 +58,7 @@ for i in range(k):
     grid = drop()
     grid = rotate()
     grid = drop()
+    bomb()
 
 cnt = 0
 for row in grid:

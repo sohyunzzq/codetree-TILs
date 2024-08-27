@@ -43,14 +43,6 @@ def drop(grid):
     
     return temp
 
-
-
-
-
-
-
-
-
 n, m = map(int, input().split())
 grid = []
 for i in range(n):

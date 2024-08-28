@@ -4,7 +4,7 @@ def in_range(x, y):
     return False
 
 def is_wall(x, y):
-    if grid[x][y] == "#":
+    if in_range(x, y) and grid[x][y] == "#":
         return True
     return False
 
@@ -15,7 +15,7 @@ def rotate(dr, x, y):
         new_dr = (new_dr - 1 + 4) % 4 #CCW
         if new_dr == dr:
             continue
-        elif not is_wall(x + dx[new_dr], y + dy[new]):
+        elif not is_wall(x + dx[new_dr], y + dy[new_dr]):
             return new_dr
     return -1
 

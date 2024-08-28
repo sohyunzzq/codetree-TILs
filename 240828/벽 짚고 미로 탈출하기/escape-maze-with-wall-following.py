@@ -19,6 +19,10 @@ for i in range(n):
     for j in range(n):
         grid[i][j] = tmp[j]
 
+visited = []
+for i in range(n):
+    visited.append([0] * n)
+
 start_x -= 1
 start_y -= 1
 
@@ -36,6 +40,11 @@ t = 0
 
 x, y = start_x, start_y
 while True:
+    if visited[x][y] == 1:
+        t = -1
+        break
+    
+    visited[x][y] = 1
     if in_range(x + dx[dr], y + dy[dr]) and is_wall(x + dx[dr], y + dy[dr]): #바로 앞에 벽
         dr = (dr - 1 + 4) % 4 #반시계 회전
     

@@ -5,11 +5,6 @@ def max_row():
                 return row - 1
     return n - 1
 
-
-
-
-
-
 n, m, k = map(int, input().split())
 grid = []
 for i in range(n):

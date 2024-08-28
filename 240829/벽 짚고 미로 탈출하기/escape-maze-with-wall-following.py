@@ -9,10 +9,14 @@ def is_wall(x, y):
     return False
 
 def rotate(dr, x, y):
-    for _ in range(2):
-        dr = (dr - 1 + 4) % 4 #CCW
-        if not is_wall(x + dx[dr], y + dy[dr]):
-            return dr
+    new_dr = dr
+
+    for i in range(4):
+        new_dr = (new_dr - 1 + 4) % 4 #CCW
+        if new_dr == dr:
+            continue
+        elif not is_wall(x + dx[new_dr], y + dy[new]):
+            return new_dr
     return -1
 
 
@@ -40,6 +44,9 @@ startx, starty = x, y
 
 t = 0
 while True:
+    if not in_range(x, y): #성공
+        break
+
     right = (dr + 1) % 4 #현재 방향의 오른쪽
 
     if not is_wall(x + dx[right], y + dy[right]): #오른쪽이 벽이 아님
@@ -49,18 +56,14 @@ while True:
         x += dx[dr]
         y += dy[dr]
         t += 1
+
+        if x == startx and y == starty:
+            t = -1
+            break
     else: #앞에 벽이 있음
         dr = rotate(dr, x, y)
         if dr == -1:
             t = -1
             break
-        continue
-
-    if not in_range(x, y): #성공
-        break
-
-    if x == startx and y == starty:
-        t = -1
-        break
 
 print(t)

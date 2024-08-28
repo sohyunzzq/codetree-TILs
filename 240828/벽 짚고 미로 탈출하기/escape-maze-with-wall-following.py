@@ -47,6 +47,7 @@ while True:
     visited[x][y] = 1
     if in_range(x + dx[dr], y + dy[dr]) and is_wall(x + dx[dr], y + dy[dr]): #바로 앞에 벽
         dr = (dr - 1 + 4) % 4 #반시계 회전
+        continue
     
     dr_right = (dr + 1) % 4
     if in_range(x + dx[dr_right], y + dy[dr_right]):

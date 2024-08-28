@@ -17,13 +17,8 @@ def move(row, col):
     
     return -1, -1
 
-
-
-
-
 #우선순위 상하좌우
 #지금보다 더 크기만 하면 이동
-
 
 n, row, col = map(int, input().split())
 grid = []

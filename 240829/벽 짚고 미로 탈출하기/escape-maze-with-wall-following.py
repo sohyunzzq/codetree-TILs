@@ -35,7 +35,6 @@ for i in range(n):
 
 x -= 1
 y -= 1
-startx, starty = x, y
 
 #격자 벗어나면 성공
 #오른쪽이 벽이 아니면 CW 회전
@@ -44,6 +43,9 @@ startx, starty = x, y
 
 t = 0
 while True:
+    if t > n * n:
+        t = -1
+        break
     if not in_range(x, y): #성공
         break
 
@@ -56,10 +58,6 @@ while True:
         x += dx[dr]
         y += dy[dr]
         t += 1
-
-        if x == startx and y == starty:
-            t = -1
-            break
     else: #앞에 벽이 있음
         dr = rotate(dr, x, y)
         if dr == -1:

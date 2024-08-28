@@ -42,10 +42,10 @@ t = 0
 while True:
     right = (dr + 1) % 4 #현재 방향의 오른쪽
 
-    if in_range(x, y) and not is_wall(x + dx[right], y + dy[right]): #오른쪽이 벽이 아님
+    if not is_wall(x + dx[right], y + dy[right]): #오른쪽이 벽이 아님
         dr = right
 
-    if in_range(x, y) and not is_wall(x + dx[dr], y + dy[dr]): #앞에 벽이 없음
+    if not is_wall(x + dx[dr], y + dy[dr]): #앞에 벽이 없음
         x += dx[dr]
         y += dy[dr]
         t += 1

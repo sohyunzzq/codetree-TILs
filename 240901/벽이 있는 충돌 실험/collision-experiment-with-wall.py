@@ -1,3 +1,5 @@
+## 55분
+
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < n:
         return True
@@ -22,7 +24,10 @@ def remove_bead():
       
     return new_beads
 
-'''    for i in range(length):
+'''
+시간 초과
+
+    for i in range(length):
         for j in range(i+1, length):
             if beads[i][0] == beads[j][0] and beads[i][1] == beads[j][1]:
                 remove_lst.append(i)

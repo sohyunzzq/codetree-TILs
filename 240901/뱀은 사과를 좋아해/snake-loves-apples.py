@@ -3,83 +3,76 @@ def in_range(x, y):
         return True
     return False
 
-def game(grid):
-    t = 0
-    head_x, head_y = 0, 0
-    tail_x, tail_y = 0, 0  
-    grid[head_x][head_y] = 2 #머리 2, 몸 1
-
-    for i in range(k):
-        dr = dict1[cmd[i][0]]
-        p = int(cmd[i][1])
-    
-        for j in range(p):
-            t += 1
-
-            grid, head_x, head_y, tail_x, tail_y = move_snake(grid, dr, head_x, head_y, tail_x, tail_y)
-            if grid == 0:
-                return t
-
-
-    return t
-
-def move_snake(grid, dr, head_x, head_y, tail_x, tail_y):
-    if not in_range(head_x + dx[dr], head_y + dy[dr]):
-        return 0, 0, 0, 0, 0
-
-    new_grid = []
-    for i in range(n):
-        new_grid.append([0] * n)
-    
-    head_x += dx[dr]
-    head_y += dy[dr]
-
-    for row in range(n):
-        for col in range(n):
-            if grid[row][col] == 1 or grid[row][col] == 2:
-                new_grid[row][col] = 1
-            elif grid[row][col] == "apple":
-                new_grid[row][col] = "apple"
-
-    if grid[head_x][head_y] == 1:
-        return 0, 0, 0, 0, 0
-
-    new_grid[head_x][head_y] = 2 #머리의 위치
-
-    if grid[head_x][head_y] == "apple":
-        pass
+def move(hx, hy):
+    if apple[hx][hy]:
+        ### 사과 없애기
+        apple[hx][hy] = 0
     else:
-        new_grid[tail_x][tail_y] = 0
-
-        tail_x += dx[dr]
-        tail_y += dy[dr]
-
-    return new_grid, head_x, head_y, tail_x, tail_y
+        ### 사과 없으면 꼬리(맨 마지막) 줄어듦
+        snake.pop()
 
 
+    ### 머리가 이미 있으면 꼬이게 됨
+    if [hx, hy] in snake:
+        return False
 
-dict1 = {"U": 0, "R": 1, "D": 2, "L": 3}
-dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
+    snake.insert(0, [hx, hy])
+    return True
 
+
+
+
+
+####### 머리 이동시키고 격자 벗어나는지 확인
+def game(dr, p):
+    global t
+    dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
+
+    for i in range(p):
+        t += 1
+        hx, hy = snake[0]
+        
+        ### 격자 벗어남
+        if not in_range(hx + dx[dr], hy + dy[dr]):
+            return False
+        
+        hx += dx[dr]
+        hy += dy[dr]
+
+        if not move(hx, hy):
+            return False
+    
+    return True
+
+
+
+
+
+
+
+####### 기본 세팅
 n, m, k = map(int, input().split())
 grid = []
+apple = []
 for i in range(n):
     grid.append([0] * n)
+    apple.append([0] * n)
 for i in range(m):
     x, y = map(int, input().split())
-    grid[x-1][y-1] = "apple"
+    apple[x-1][y-1] = 1
+
+mapper = {"U": 0, "R": 1, "D": 2, "L": 3}
+snake = [[0, 0]]
+t = 0
 
 
-
-cmd = []
+####### 명령 받고 시뮬 돌리기
 for i in range(k):
-    cmd.append(input().split())
+    dr, p = input().split()
+    dr = mapper[dr]
+    p = int(p)
 
-t = game(grid)
-
-
-    
-
-    
+    if not game(dr, p):
+        break
 
 print(t)

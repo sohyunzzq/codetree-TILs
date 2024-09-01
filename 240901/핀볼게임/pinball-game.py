@@ -22,8 +22,6 @@ def set_dr(dr, x, y):
     return dr
 
 
-
-
 def game(dr, x, y):
     ### 기본 세팅
     t = 1
@@ -39,7 +37,6 @@ def game(dr, x, y):
             return t
 
 
-
 ####### 입력받기
 n = int(input())
 grid = []
@@ -52,6 +49,7 @@ t = 0
 x, y = 0, 0
 dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 
+
 ####### 모든 경우 구하기
 for dr in range(4):
     for j in range(n):
@@ -62,7 +60,6 @@ for dr in range(4):
         
         x += dx[dr]
         y += dy[dr]
-
 
 
 print(t)

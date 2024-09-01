@@ -14,9 +14,9 @@ def remove_marble(row, col):
     candi.sort(key = lambda x: (x[4], x[0]), reverse = True)
 
     while len(candi) != k:
-        candi.pop()
+        marbles.remove(candi.pop())
     
-    return candi
+    return marbles
 
 
 
@@ -46,6 +46,7 @@ def game():
         grid[nx][ny] += 1
         marble[1], marble[2] = nx, ny
         marble[3] = dr
+    
         
     for row in range(n):
         for col in range(n):

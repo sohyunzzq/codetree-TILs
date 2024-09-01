@@ -3,6 +3,7 @@ def in_range(x, y):
         return True
     return False
 
+
 def move(hx, hy):
     if apple[hx][hy]:
         ### 사과 없애기
@@ -18,9 +19,6 @@ def move(hx, hy):
 
     snake.insert(0, [hx, hy])
     return True
-
-
-
 
 
 ####### 머리 이동시키고 격자 벗어나는지 확인
@@ -43,11 +41,6 @@ def game(dr, p):
             return False
     
     return True
-
-
-
-
-
 
 
 ####### 기본 세팅

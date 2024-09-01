@@ -1,4 +1,4 @@
-## 55분
+## 55분, 시간 초과 진짜 개억까네 ㅁㅊ
 
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < n:
@@ -54,18 +54,15 @@ def one_second():
             beads[i][1] = ny
 
 
-
 def simul():
     global beads
+
     ### 2n번 이동을 해도 아무것도 안 부딪히면 리턴
     for i in range(2 * n):
         one_second()
         beads = remove_bead()
     
     return len(beads)
-
-
-
 
 
 mapper = {"U": 0, "R": 1, "D": 2, "L": 3}

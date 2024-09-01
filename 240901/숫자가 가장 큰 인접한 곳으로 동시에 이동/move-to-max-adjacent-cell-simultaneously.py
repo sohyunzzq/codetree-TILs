@@ -13,8 +13,8 @@ def move():
     for row in range(n):
         for col in range(n):
             if count[row][col] == 1:
-                maxi = grid[row][col]
-                maxx, maxy = row, col
+                maxi = -1
+                maxx, maxy = -1, -1
                 for dr in range(4):
                     nx, ny = row + dx[dr], col + dy[dr]
                     if not in_range(nx, ny):
@@ -25,7 +25,6 @@ def move():
                         maxx, maxy = nx, ny
                 
                 new_count[maxx][maxy] += 1
-                        
 
     
     ### 구슬 충돌한 거 삭제
@@ -52,7 +51,6 @@ for i in range(m):
     count[x-1][y-1] = 1
 
 
-####### 기본 세팅
 dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
 
 

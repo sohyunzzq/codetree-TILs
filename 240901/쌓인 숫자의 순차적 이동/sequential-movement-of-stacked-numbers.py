@@ -16,13 +16,15 @@ def move(num, x, y):
         nx, ny = x + dx[dr], y + dy[dr]
         if not in_range(nx, ny):
             continue
-        
+
         temp = grid[nx * n + ny]
         if temp == []:
             continue
         if max(temp) > maxi:
             maxi = max(temp)
             maxx, maxy = nx, ny
+        
+        
     
     ### 갈 곳이 있는지 확인
     if maxi != -1:
@@ -35,7 +37,7 @@ def move(num, x, y):
 
         grid[x * n + y].remove(num)
         grid[maxx * n + maxy].insert(index, num)
-    
+        
 
 def simul(num):
     global grid
@@ -43,6 +45,7 @@ def simul(num):
     for i in range(n * n):
         if num in grid[i]:
             move(num, i // n, i % n)
+            break
 
 
 

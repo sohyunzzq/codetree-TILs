@@ -1,3 +1,5 @@
+## 50분, 
+
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < n:
         return True
@@ -24,7 +26,6 @@ def move(num, x, y):
             maxi = max(temp)
             maxx, maxy = nx, ny
         
-        
     
     ### 갈 곳이 있는지 확인
     if maxi != -1:
@@ -37,16 +38,6 @@ def move(num, x, y):
 
         grid[x * n + y].remove(num)
         grid[maxx * n + maxy].insert(index, num)
-        
-
-def simul(num):
-    global grid
-
-    for i in range(n * n):
-        if num in grid[i]:
-            move(num, i // n, i % n)
-            break
-
 
 
 n, m = map(int, input().split())
@@ -58,8 +49,12 @@ for i in range(n):
 nums = list(map(int, input().split()))
 
 
-for i in range(m):
-    simul(nums[i])
+for num in nums:
+    for i in range(n * n):
+        if num in grid[i]:
+            move(num, i // n, i % n)
+            break
+
 
 for i in range(n * n):
     if grid[i] == []:

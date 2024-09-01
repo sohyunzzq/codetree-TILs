@@ -1,3 +1,9 @@
+## 29분
+## 어떤 걸 리턴할지 잘 판단하긔...
+## global !!
+## remove, pop 차이 기억하기: remove 값 자체, pop 인덱스
+
+
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < n:
         return True
@@ -17,7 +23,6 @@ def remove_marble(row, col):
         marbles.remove(candi.pop())
     
     return marbles
-
 
 
 def game():
@@ -62,7 +67,6 @@ marbles = []
 for i in range(1, m+1):
     r, c, d, v = input().split()
     marbles.append([i, int(r)-1, int(c)-1, mapper[d], int(v)])
-
 
 
 for i in range(t):

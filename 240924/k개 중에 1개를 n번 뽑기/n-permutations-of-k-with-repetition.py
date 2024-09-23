@@ -3,6 +3,7 @@ def choose(num):
         for digit in lst:
             print(digit, end = " ")
         print()
+        
         return
 
     for i in range(1, k+1):

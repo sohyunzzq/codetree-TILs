@@ -5,7 +5,7 @@ def choose(num):
         print()
         return
 
-    for i in range(1, n+1):
+    for i in range(1, k+1):
         lst.append(i)
         choose(num + 1)
         lst.pop()

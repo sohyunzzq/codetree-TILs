@@ -9,8 +9,6 @@ def choose(num):
         lst.append(i)
         choose(num + 1)
         lst.pop()
-    
-    return
 
 k, n = map(int, input().split())
 lst = []

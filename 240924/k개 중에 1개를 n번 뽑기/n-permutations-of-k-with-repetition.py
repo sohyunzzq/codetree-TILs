@@ -1,3 +1,5 @@
+## 7분
+
 def choose(num):
     if num == n + 1:
         for digit in lst:

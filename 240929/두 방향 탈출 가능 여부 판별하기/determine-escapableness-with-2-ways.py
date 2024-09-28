@@ -27,7 +27,7 @@ def can_go(x, y):
 
 
 def dfs(x, y):
-    if x == n and y == m:
+    if x == n - 1 and y == m - 1:
         return True
     
     dx, dy = [0, 1], [1, 0]

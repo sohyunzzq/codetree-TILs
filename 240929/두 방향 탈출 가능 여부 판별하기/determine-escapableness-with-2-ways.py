@@ -27,8 +27,10 @@ def can_go(x, y):
 
 
 def dfs(x, y):
+    global ans
+
     if x == n - 1 and y == m - 1:
-        return True
+        ans = True
     
     dx, dy = [0, 1], [1, 0]
     for i in range(2):
@@ -39,7 +41,10 @@ def dfs(x, y):
     
     return False
 
-if dfs(x, y):
+ans = False
+dfs(0, 0)
+
+if ans:
     print(1)
 else:
     print(0)

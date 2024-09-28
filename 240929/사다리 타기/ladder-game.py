@@ -20,10 +20,14 @@ def select(index):
     select(index + 1)
 
 
-
 def game():
-    originalans = [1, 2, 3, 4]
-    ans = [1, 2, 3, 4]
+    originalans = [0] * n
+    ans = [0] * n
+
+    for i in range(1, n + 1):
+        originalans[i-1] = i 
+    for i in range(1, n + 1):
+        ans[i-1] = i
 
     for item in line:
         originalans[item[0] - 1], originalans[item[0]] = originalans[item[0]], originalans[item[0] - 1]

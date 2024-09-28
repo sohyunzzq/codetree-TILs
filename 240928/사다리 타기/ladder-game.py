@@ -37,19 +37,21 @@ lst = []
 def select(index):
     global mini
     if index == m:
+        ladder = setting(lst)
+        ans = game(ladder, len(lst))
+        if ans == originalans:
+            mini = min(mini, len(lst))
+
         return
 
     lst.append(line[index])
     select(index + 1)
 
+
+
     lst.pop()
 
     select(index + 1)
-
-    ladder = setting(lst)
-    ans = game(ladder, len(lst))
-    if ans == originalans:
-        mini = min(mini, len(lst))
 
 
 

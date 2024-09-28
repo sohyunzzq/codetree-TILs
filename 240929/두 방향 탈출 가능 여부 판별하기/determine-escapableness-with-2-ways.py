@@ -26,12 +26,7 @@ def can_go(x, y):
     return False
 
 
-def dfs(x, y):
-    global ans
-
-    if x == n - 1 and y == m - 1:
-        ans = True
-    
+def dfs(x, y):    
     dx, dy = [0, 1], [1, 0]
     for i in range(2):
         nx, ny = x + dx[i], y + dy[i]
@@ -41,10 +36,6 @@ def dfs(x, y):
     
     return False
 
-ans = False
 dfs(0, 0)
 
-if ans:
-    print(1)
-else:
-    print(0)
+print(visited[n-1][m-1])

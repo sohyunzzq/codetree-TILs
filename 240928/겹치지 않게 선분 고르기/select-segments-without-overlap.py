@@ -19,12 +19,12 @@ def select(index):
     select(index + 1)
 
 def check():
-    box = [0] * 1000
+    box = [0] * 1001
     for item in lst:
         for i in range(item[0], item[1] + 1):
             if box[i] == 1:
                 return False
-            box[i] += 1
+            box[i] = 1
     
     return True
 

@@ -1,3 +1,9 @@
+#38분
+
+#이동은 무조건 height만큼 해야 함
+#고른 선에 따라서 다른 사다리가 만들어진다... 바보
+
+
 def setting(line):
     ladder = []
     for i in range(height):
@@ -35,12 +41,6 @@ def select(index):
 
     lst.append(line[index])
     select(index + 1)
-
-    ladder = setting(lst)
-    ans = game(ladder, len(lst))
-    if ans == originalans:
-        mini = min(mini, len(lst))
-
 
     lst.pop()
 

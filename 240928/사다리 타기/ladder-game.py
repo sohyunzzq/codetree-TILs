@@ -14,7 +14,7 @@ def game(ladder, numberofline):
     for num in range(n):
         x, y = 0, num
     
-        for i in range(numberofline):
+        for i in range(height):
             if ladder[x][y] == "A":
                 y += 1
             elif ladder[x][y] == "B":
@@ -35,6 +35,13 @@ def select(index):
 
     lst.append(line[index])
     select(index + 1)
+
+    ladder = setting(lst)
+    ans = game(ladder, len(lst))
+    if ans == originalans:
+        mini = min(mini, len(lst))
+
+
     lst.pop()
 
     select(index + 1)

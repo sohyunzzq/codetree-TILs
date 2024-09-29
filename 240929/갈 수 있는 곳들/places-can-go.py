@@ -6,15 +6,16 @@ n, k = map(int, input().split())
 area = []
 for i in range(n):
     area.append(list(map(int, input().split())))
-coor = []
-for i in range(k):
-    x, y = map(int, input().split())
-    x -= 1
-    y -= 1
-    coor.append([x, y])
+
 visited = []
 for i in range(n):
     visited.append([0] * n)
+
+q = deque()
+for i in range(k):
+    x, y = map(int, input().split())
+    q.append([x-1, y-1])
+    visited[x-1][y-1] = 1
 
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < n:
@@ -26,7 +27,6 @@ def can_go(x, y):
         return True
     return False
 
-q = deque()
 def bfs():
     while q:
         tmp = q.popleft()
@@ -42,11 +42,7 @@ def bfs():
                 q.append([nx, ny])
                 bfs()
 
-
-for item in coor:
-    q.append([item[0], item[1]])
-    visited[item[0]][item[1]] = 1
-    bfs()
+bfs()
 
 ans = 0
 for row in visited:

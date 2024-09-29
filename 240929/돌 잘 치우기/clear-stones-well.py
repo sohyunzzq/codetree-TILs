@@ -65,7 +65,7 @@ def check():
     for i in selected_stone:
         new_area[i[0]][i[1]] = 0
 
-    cnt = 1
+    cnt = 0
     ## 돌 설치 완료
     visited = []
     for i in range(n):

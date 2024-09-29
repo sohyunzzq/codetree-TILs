@@ -11,6 +11,10 @@ max_k = 0
 for row in area:
     for col in row:
         max_k = max(max_k, col)
+min_k = max_k
+for row in area:
+    for col in row:
+        min_k = min(min_k, col)
 
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < m:
@@ -33,7 +37,7 @@ def dfs(x, y):
             dfs(nx, ny)
     
 klst = []
-for k in range(1, max_k + 1):
+for k in range(min_k - 1, max_k + 1):
     visited = []
     for i in range(n):
         visited.append([0] * m)

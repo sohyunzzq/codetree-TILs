@@ -11,6 +11,7 @@ for i in range(n):
 
 x, y = map(int, input().split())
 x, y = x-1, y-1
+num = area[x][y]
 visited[x][y] = 1
 q = deque()
 q.append([x, y])
@@ -25,26 +26,21 @@ def can_go(x, y):
         return True
     return False
 
-num = 0
-nx, ny = x, y
 def bfs():
-    global num
-    global nx, ny
     while q:
         tmp = q.popleft()
         x, y = tmp[0], tmp[1]
-        num = area[x][y]
         dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 
         for dr in range(4):
             nx, ny = x + dx[dr], y + dy[dr]
 
             if can_go(nx, ny):
+                q.append([nx, ny])
                 candi.append([nx, ny])
                 visited[nx][ny] = 1
                 bfs()
     
-    return nx, ny
 
 def choose_candi():
     maxi = 0
@@ -60,14 +56,20 @@ def choose_candi():
     lst.sort(key = lambda x: (x[0], x[1]))
     return lst[0]
 
-
 candi = []
+coor = [x, y]
 for i in range(k):
-    nx, ny = bfs()
+    candi = []
+    bfs()
     if len(candi) == 0:
         break
     
     coor = choose_candi()
+    num = area[coor[0]][coor[1]]
     q.append(coor)
+    visited = []
+    for i in range(n):
+        visited.append([0] * n)
+    visited[coor[0]][coor[1]] = 1
 
-print(nx + 1, ny + 1)
+print(coor[0] + 1, coor[1] + 1)

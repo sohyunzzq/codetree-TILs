@@ -6,7 +6,10 @@ for i in range(n):
     area.append(list(map(int, input().split())))
 coor = []
 for i in range(k):
-    coor.append(list(map(int, input().split())))
+    x, y = map(int, input().split())
+    x -= 1
+    y -= 1
+    coor.append([x, y])
 visited = []
 for i in range(n):
     visited.append([0] * n)
@@ -40,6 +43,7 @@ def bfs():
 
 for item in coor:
     q.append([item[0], item[1]])
+    visited[item[0]][item[1]] = 1
     bfs()
 
 ans = 0

@@ -6,7 +6,6 @@ visited = []
 for i in range(n):
     visited.append([0] * n)
 
-village = 0
 people = []
 
 def in_range(x, y):
@@ -34,14 +33,13 @@ def dfs(x, y):
 num = 0
 for row in range(n):
     for col in range(n):
-        if area[row][col] == 1 and not visited[row][col]:
-            village += 1
+        if can_go(row, col):
             num = 1
             visited[row][col] = 1
             dfs(row, col)
             people.append(num)
 
-print(village)
+print(len(people))
 people.sort()
 for item in people:
     print(item)

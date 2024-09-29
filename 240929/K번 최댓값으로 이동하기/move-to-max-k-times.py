@@ -1,6 +1,4 @@
 from collections import deque
-import sys
-sys.setrecursionlimit(100 * 100 + 1)
 
 n, k = map(int, input().split())
 area = []
@@ -32,7 +30,6 @@ def bfs():
                 candi.append([nx, ny])
                 q.append([nx, ny])
                 visited[nx][ny] = 1
-                bfs()
 
 
 def choose_candi():

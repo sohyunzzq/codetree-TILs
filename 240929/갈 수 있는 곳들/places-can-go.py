@@ -1,4 +1,6 @@
 from collections import deque
+import sys
+sys.setrecursionlimit(10000 + 1)
 
 n, k = map(int, input().split())
 area = []

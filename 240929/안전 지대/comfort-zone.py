@@ -37,7 +37,7 @@ def dfs(x, y):
             dfs(nx, ny)
     
 klst = []
-for k in range(min_k - 1, max_k + 1):
+for k in range(min_k, max_k + 1):
     visited = []
     for i in range(n):
         visited.append([0] * m)

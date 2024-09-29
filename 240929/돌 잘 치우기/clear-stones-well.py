@@ -21,14 +21,12 @@ def in_range(x, y):
     return False
 
 def can_go(x, y):
-    if in_range(x, y) and new_area[x][y] == 0 and not visited[x][y]:
+    if in_range(x, y) and area[x][y] == 0 and not visited[x][y]:
         return True
     return False
 
 
-cnt = 0
 def bfs():
-    global cnt
     while q:
         tmp = q.popleft()
         x, y = tmp[0], tmp[1]
@@ -38,34 +36,23 @@ def bfs():
             nx, ny = x + dx[dr], y + dy[dr]
 
             if can_go(nx, ny):
-                cnt += 1
                 visited[nx][ny] = 1
                 q.append([nx, ny])
 
 ans = []
 q = deque()
 
-new_area = []
 visited = []
 for i in range(n):
     visited.append([0] * n)
 
 def check():
-    global new_area
     global visited
     global cnt
-    new_area = []
-    for i in range(n):
-        new_area.append([0] * n)
-    
-    for row in range(n):
-        for col in range(n):
-            new_area[row][col] = area[row][col]
 
     for i in selected_stone:
-        new_area[i[0]][i[1]] = 0
+        area[i[0]][i[1]] = 0
 
-    cnt = 0
     ## 돌 설치 완료
     visited = []
     for i in range(n):
@@ -75,7 +62,15 @@ def check():
         x, y = xy[0], xy[1]
         q.append([x, y])
     bfs()
+    
+    cnt = 0
+    for row in visited:
+        for col in row:
+            if col == 1:
+                cnt += 1
     ans.append(cnt)
+    for i in selected_stone:
+        area[i[0]][i[1]] = 1
 
 
 #lst에 있는 돌들을 배치하고 세어보기

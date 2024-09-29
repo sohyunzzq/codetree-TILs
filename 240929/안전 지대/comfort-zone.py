@@ -37,7 +37,7 @@ for k in range(1, max_k + 1):
     visited = []
     for i in range(n):
         visited.append([0] * m)
-        
+
     comfort = 0
     for row in range(n):
         for col in range(m):
@@ -45,7 +45,8 @@ for k in range(1, max_k + 1):
                 visited[row][col] = 1
                 comfort += 1
                 dfs(row, col)
-                klst.append([k, comfort])
+    
+    klst.append([k, comfort])
 
 klst.sort(key = lambda x: (-x[1], x[0]))
 print(klst[0][0], klst[0][1])

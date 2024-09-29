@@ -15,7 +15,7 @@ min_k = max_k
 for row in area:
     for col in row:
         min_k = min(min_k, col)
-min_k = min(min_k - 1, 1)
+min_k = max(min_k - 1, 1)
 
 def in_range(x, y):
     if 0 <= x < n and 0 <= y < m:

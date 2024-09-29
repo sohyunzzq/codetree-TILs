@@ -65,21 +65,19 @@ def check():
     for i in selected_stone:
         new_area[i[0]][i[1]] = 0
 
-    
+    cnt = 1
     ## 돌 설치 완료
     visited = []
     for i in range(n):
         visited.append([0] * n)
 
-    for row in range(n):
-        for col in range(n):
-            if can_go(row, col):
-                cnt = 1
-                visited[row][col] = 1
-                q.append([row, col])
-                bfs()
-            
-                ans.append(cnt)
+    for xy in coor:
+        x, y = xy[0], xy[1]
+        q.append([x, y])
+    bfs()
+    ans.append(cnt)
+
+
 #lst에 있는 돌들을 배치하고 세어보기
 #lst에는, 좌표가 m개 있는 리스트가 1개 이상 -> 3중 배열
 

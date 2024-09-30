@@ -57,6 +57,7 @@ def melt():
             if in_range(nx, ny) and area[nx][ny] == 1:
                 area[nx][ny] = 0
                 cnt += 1
+                coor.append([nx, ny])
                 num_of_glagier -= 1
 
 def all_melted():
@@ -71,18 +72,14 @@ t = 0
 coor = []
 flag = 1
 
-while num_of_glagier:
-    visited = []
-    for i in range(n):
-        visited.append([0] * m)
-        
-    visited[0][0] = 1
-    q.append([0, 0])
+     
+visited[0][0] = 1
+q.append([0, 0])
 
-    bfs()
+bfs()
 
     #가장 바깥 0의 좌표들이 coor에 들어감
-
+while num_of_glagier: 
     cnt = 0
     melt()
     t += 1

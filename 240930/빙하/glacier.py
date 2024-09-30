@@ -13,6 +13,12 @@ visited = []
 for i in range(n):
     visited.append([0] * m)
 
+num_of_glagier = 0
+for row in area:
+    for col in row:
+        if col == 1:
+            num_of_glagier += 1
+
 q = deque()
 
 def in_range(x, y):
@@ -40,6 +46,7 @@ def bfs():
 
 def melt():
     global cnt
+    global num_of_glagier
     for c in coor:
         x, y = c[0], c[1]
 
@@ -50,6 +57,7 @@ def melt():
             if in_range(nx, ny) and area[nx][ny] == 1:
                 area[nx][ny] = 0
                 cnt += 1
+                num_of_glagier -= 1
 
 def all_melted():
     for row in range(n):
@@ -83,7 +91,7 @@ for row in range(n):
             melt()
             t += 1
 
-            if all_melted():
+            if num_of_glagier == 0:
                 flag = 0
                 break
 

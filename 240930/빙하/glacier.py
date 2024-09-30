@@ -47,6 +47,7 @@ def bfs():
 def melt():
     global cnt
     global num_of_glagier
+    tmp = []
     for c in coor:
         x, y = c[0], c[1]
 
@@ -57,9 +58,12 @@ def melt():
             if in_range(nx, ny) and area[nx][ny] == 1:
                 area[nx][ny] = 0
                 cnt += 1
-                coor.append([nx, ny])
+                tmp.append([nx, ny])
                 num_of_glagier -= 1
 
+    for item in tmp:
+        coor.append(item)
+        
 def all_melted():
     for row in range(n):
         for col in range(m):
@@ -69,7 +73,7 @@ def all_melted():
 
 cnt = 0
 t = 0
-coor = []
+coor = [[0, 0]]
 flag = 1
 
      

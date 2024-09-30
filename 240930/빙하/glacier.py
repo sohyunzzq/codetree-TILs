@@ -51,6 +51,13 @@ def melt():
                 area[nx][ny] = 0
                 cnt += 1
 
+def all_melted():
+    for row in range(n):
+        for col in range(m):
+            if area[row][col] == 1:
+                return False
+    return True
+
 cnt = 0
 t = 0
 coor = []
@@ -68,13 +75,13 @@ for row in range(n):
             bfs()
 
             #가장 바깥 0의 좌표들이 coor에 들어감
-
-            if len(coor) == 0:
-                flag = 0
-                break
             
             cnt = 0
             melt()
             t += 1
+
+            if all_melted():
+                flag = 0
+                break
 
 print(t, cnt)

@@ -9,4 +9,4 @@ for i in range(2, n + 1):
     if i >= 3:
         dp[i] += dp[i-3]
 
-print(dp[n])
+print(dp[n] % 10007)

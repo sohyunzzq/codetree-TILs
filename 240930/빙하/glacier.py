@@ -67,11 +67,14 @@ for row in range(n):
     if flag == 0:
         break
     for col in range(m):
+        visited = []
+        for i in range(n):
+            visited.append([0] * m)
+            
         if can_go(row, col):
             visited[row][col] = 1
             q.append([row, col])
 
-            coor = []
             bfs()
 
             #가장 바깥 0의 좌표들이 coor에 들어감

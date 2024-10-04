@@ -1,3 +1,5 @@
+import sys
+
 string = input()
 
 alphas = set()
@@ -10,7 +12,7 @@ alphas = list(alphas)
 lst = []
 matched = {}
 
-maxi = 0
+maxi = -sys.maxsize
 
 def get_value():
     ans = matched[string[0]]

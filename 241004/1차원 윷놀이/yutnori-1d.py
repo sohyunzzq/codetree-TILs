@@ -7,7 +7,7 @@ lst = []
 def get_score():
     ans = 0
 
-    score = [0] * (k + 1)
+    score = [1] * (k + 1)
 
     for i in range(n):
         score[lst[i]] += yut[i]

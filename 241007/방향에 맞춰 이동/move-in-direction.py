@@ -10,8 +10,7 @@ for i in range(n):
     dr, num = input().split()
 
     dr = dict1[dr]
-    for j in range(int(num)):
-        x += dx[dr]
-        y += dy[dr]
+    x += dx[dr] * int(num)
+    y += dy[dr] * int(num)
 
 print(x, y)

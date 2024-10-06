@@ -16,7 +16,7 @@ elif 1 * n < k <= 2 * n:
     dr = 2
 elif 2 * n < k <= 3 * n:
     x = n - 1
-    y = n * n - k
+    y = n * 3 - k
     dr = 3
 else:
     x = n * 4 - k

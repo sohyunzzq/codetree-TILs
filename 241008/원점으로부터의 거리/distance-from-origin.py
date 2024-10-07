@@ -13,7 +13,7 @@ for i in range(n):
 
     coors.append(c)
 
-coors.sort(key = lambda x: (abs(x.x + x.y), x.num))
+coors.sort(key = lambda x: (abs(x.x) + abs(x.y), x.num))
 
 for c in coors:
     print(c.num)

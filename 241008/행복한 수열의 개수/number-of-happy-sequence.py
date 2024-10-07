@@ -26,7 +26,7 @@ for row in range(n):
 
 for row in range(n):
     for col in range(n-m+1):
-        if happy_row(lst2, area[row][col]):
+        if happy_row(lst2, lst2[row][col]):
             cnt += 1
             break
 

@@ -46,37 +46,23 @@ def OUTSIDE(x, y):
 
     return False
 
-def DRAW_MINE(x, y):
-    area[x][y] = "NB"
+def DRAW(x, y, num):
+    area[x][y] = num
     dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
     for dr in range(4):
-        area[x + dx[dr]][y + dy[dr]] = "NB"
+        area[x + dx[dr]][y + dy[dr]] = num
 
-    area[x + dx[ex]][y + dy[ex]] = "NE"
+    area[x + dx[ex]][y + dy[ex]] = -num
 
-def DRAW(x, y):
-    area[x][y] = "EB"
-    dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
-    for dr in range(4):
-        area[x + dx[dr]][y + dy[dr]] = "EB"
-
-    area[x + dx[ex]][y + dy[ex]] = "EE"
-
-def NB(x, y):
+def MYBODY(x, y, num):
     global visited
-    if in_range(x, y) and not visited[x][y] and (area[x][y] == "NB" or area[x][y] == "NE"):
+    if in_range(x, y) and not visited[x][y] and (area[x][y] == num or area[x][y] == -num):
         return True
     return False
 
-def E(x, y):
+def MYEXIT(x, y, num):
     global visited
     if in_range(x, y) and not visited[x][y] and area[x][y] != 0:
-        return True
-    return False
-
-def EB(x, y):
-    global visited
-    if in_range(x, y) and not visited[x][y] and (area[x][y] == "EB" or area[x][y] == "EE"):
         return True
     return False
 
@@ -87,16 +73,15 @@ def GET_SCORE_BFS():
     maxi = 0
     while q:
         x, y = q.popleft()
-        state = area[x][y]
+        num = area[x][y]
 
         dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
         for dr in range(4):
             nx, ny = x + dx[dr], y + dy[dr]
 
-            if (state == "NB" and NB(nx, ny)) or \
-                    ((state == "NE" or state == "EE") and E(nx, ny)) or \
-                    (state == "EB" and EB(nx, ny)):
+            if (num > 0 and MYBODY(nx, ny, num)) or \
+                    (num < 0 and MYEXIT(nx, ny, num)):
                 visited[nx][ny] = 1
                 maxi = max(maxi, nx + 1)
                 q.append([nx, ny])
@@ -122,7 +107,7 @@ def score(x, y):
     ans += GET_SCORE_BFS()
 
 ans = 0
-for _ in range(k):
+for _ in range(1, k + 1):
     c, ex = map(int, input().split())
 
     fairy = [-2, c-1]
@@ -163,12 +148,9 @@ for _ in range(k):
         continue
 
     #안 넘치면 골렘 위치 표시하기
-    DRAW_MINE(fairy[0], fairy[1])
+    DRAW(fairy[0], fairy[1], _)
 
     #점수 계산하기
     score(fairy[0], fairy[1])
-
-    #내 거 기존 거랑 똑같이 표시해주기
-    DRAW(fairy[0], fairy[1])
 
 print(ans)

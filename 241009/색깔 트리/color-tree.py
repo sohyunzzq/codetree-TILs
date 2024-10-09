@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open("input.txt", "r")
-
 class NODE:
     def __init__(self, mid, p, color, depth):
         self.mid = mid

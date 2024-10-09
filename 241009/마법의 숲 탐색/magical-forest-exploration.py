@@ -60,7 +60,7 @@ def DRAW(x, y):
     for dr in range(4):
         area[x + dx[dr]][y + dy[dr]] = "EB"
 
-    area[x + dx[ex]][y + dy[ex]] = "BE"
+    area[x + dx[ex]][y + dy[ex]] = "EE"
 
 def NB(x, y):
     global visited

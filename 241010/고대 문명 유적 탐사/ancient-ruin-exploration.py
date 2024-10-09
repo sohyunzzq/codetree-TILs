@@ -113,7 +113,7 @@ def GET_FIRST():
         for col in range(1, 4):
             everycase.append(GET_CASE(row, col))
 
-    everycase.sort(key = lambda x: (-x[0], x[1], x[2][0], x[2][1]))
+    everycase.sort(key = lambda x: (-x[0], x[1], x[2][1], x[2][0]))
 
     return everycase[0]
 

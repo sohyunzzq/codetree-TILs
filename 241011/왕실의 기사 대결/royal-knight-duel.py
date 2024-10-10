@@ -110,12 +110,9 @@ def CAN_ATTACK(attacker, dr):
 
                 #내 자리 표시해주기
                 copy[nx][ny] = pusher.num
+                if area[nx][ny] == 2:
+                    return False
 
-    #다 밀었음, 이제 벽이 있는지 검사, 하나라도 있으면 false
-    for row in range(l):
-        for col in range(l):
-            if copy[row][col] != 0 and area[row][col] == 2:
-                return False
     return True
 
 

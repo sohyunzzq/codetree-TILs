@@ -1,3 +1,8 @@
+import sys
+sys.stdin = open("input.txt", "r")
+
+from collections import deque
+
 class Knight:
     def __init__(self, num, x, y, h, w, k):
         self.num = num
@@ -60,6 +65,7 @@ def CAN_GO(x, y, h, w, dr):
 
     return True
 
+qq = deque()
 def CAN_ATTACK(attacker, dr):
     #밀 수 있는지만 체크, 자리 업데이트x
     #어차피 한 방향으로만 밀릴 테니까...?
@@ -71,9 +77,9 @@ def CAN_ATTACK(attacker, dr):
         for col in range(l):
             copy[row][col] = k_area[row][col]
 
-    push = [attacker.num]
-    while push:
-        tmp = push.pop()
+    qq.append(attacker.num)
+    while qq:
+        tmp = qq.pop()
         for k in knights:
             if k.num == tmp:
                 pusher = k
@@ -105,7 +111,7 @@ def CAN_ATTACK(attacker, dr):
                 else:
                     for knight in knights:
                         if knight.num == someone:
-                            push.append(someone)
+                            qq.append(someone)
                             break
 
                 #내 자리 표시해주기

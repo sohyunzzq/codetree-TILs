@@ -15,17 +15,19 @@ def in_range(x, y):
         return True
     return False
 
-def in_range_extension(x, y, h, w):
+def in_range_extension(x, y, h, w, dr):
     for row in range(x, x+h):
         for col in range(y, y+w):
-            if not in_range(row, col):
+            nx, ny = row + dx[dr], col + dy[dr]
+            if not in_range(nx, ny):
                 return False
     return True
 
-def wall_extension(x, y, h, w):
+def wall_extension(x, y, h, w, dr):
     for row in range(x, x+h):
         for col in range(y, y+w):
-            if area[row][col] == 2:
+            nx, ny = row + dx[dr], col + dy[dr]
+            if area[nx][ny] == 2:
                 return True
     return False
 
@@ -47,13 +49,13 @@ def noone(x, y, h, w, dr, my_num):
             return False
     return True
 
-def CAN_GO(x, y, h, w):
+def CAN_GO(x, y, h, w, dr):
     # 격자 밖으로 나가면 못 감
-    if not in_range_extension(x, y, h, w):
+    if not in_range_extension(x, y, h, w, dr):
         return False
 
     # 벽이 있으면 못 감
-    if wall_extension(x, y, h, w):
+    if wall_extension(x, y, h, w, dr):
         return False
 
     return True
@@ -222,7 +224,7 @@ for _ in range(q):
             x, y = knight.x, knight.y
             h, w = knight.h, knight.w
 
-            if not CAN_GO(x, y, h, w):
+            if not CAN_GO(x, y, h, w, dr):
                 continue
 
             #>>이동한 다음에<< 다른 기사가 있는지 확인

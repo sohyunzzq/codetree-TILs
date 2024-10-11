@@ -114,6 +114,8 @@ def BOMB(attacker, victim):
     x, y = victim[0], victim[1]
 
     power[x][y] -= power[attacker[0]][attacker[1]]
+    if power[x][y] < 0:
+        power[x][y] = 0
     attacked_now[x][y] = True
 
     for dr in range(8):
@@ -141,15 +143,15 @@ def ATTACK(attacker, victim):
         #피해자 오기 직전 칸
         px, py = pastx[victim[0]][victim[1]], pasty[victim[0]][victim[1]]
         while True:
+            if px == attacker[0] and py == attacker[1]:
+                return
+
             power[px][py] -= power[attacker[0]][attacker[1]] // 2
             if power[px][py] < 0:
                 power[px][py] = 0
             attacked_now[px][py] = True
 
             nx, ny = pastx[px][py], pasty[px][py]
-            if nx == attacker[0] and ny == attacker[1]:
-                return
-
             px, py = nx, ny
 
     else:

@@ -47,7 +47,7 @@ def RUNNER_MOVE(runner):
     #만약 그 자리가 탈출구라면, 탈출 여부 업데이트, human 업데이트
     if [nx, ny] == exitpos:
         runner.escaped = True
-        human[x][y] = 0
+        human[x][y] -= 1
         return
 
     #human에서 기존 자리 없애기
@@ -192,11 +192,11 @@ for time in range(1, k + 1):
     for runner in runners:
         if not runner.escaped:
             RUNNER_MOVE(runner)
-            
+
     #전부 탈출했으면 종료
     if ALL_ESCAPED():
         break
-        
+
     #다 움직인 후 정사각형 만듦, 왼쪽 위 좌표
     sq_x, sq_y, size = MAKE_SQUARE()
 

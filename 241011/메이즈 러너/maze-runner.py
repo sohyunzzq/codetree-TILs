@@ -1,5 +1,6 @@
 class Runner:
-    def __init__(self, x, y):
+    def __init__(self, num, x, y):
+        self.num = num
         self.escaped = False
         self.x = x
         self.y = y
@@ -51,7 +52,7 @@ def RUNNER_MOVE(runner):
         return
 
     #human에서 기존 자리 없애기
-    human[x][y] = 0
+    human[x][y] -= 1
 
     #human에서 새로운 자리 업데이트, runner 좌표 업데이트
     human[nx][ny] += 1
@@ -110,16 +111,18 @@ def ROTATE(x, y, size):
         for col in range(y, y + size):
             new_human[row][col] = 0
 
+    moved = [False] * (m + 1)
     for row in range(size):
         for col in range(size):
             #사람 있음
             if human[x + row][y + col] > 0:
                 for runner in runners:
-                    if runner.x == x + row and runner.y == y + col and not runner.escaped:
+                    if not moved[runner.num] and runner.x == x + row and runner.y == y + col and not runner.escaped:
                         human[x + row][y + col] -= 1
                         runner.x = int(change[row][col][0])
                         runner.y = int(change[row][col][1])
                         new_human[runner.x][runner.y] += 1
+                        moved[runner.num] = True
 
     #새로 만든 배열 복제
     for row in range(x, x + size):
@@ -180,7 +183,7 @@ for i in range(n):
 runners = []
 for i in range(m):
     x, y = map(int, input().split())
-    runners.append(Runner(x-1, y-1))
+    runners.append(Runner(i+1, x-1, y-1))
     human[x-1][y-1] += 1
 
 x, y = map(int, input().split())

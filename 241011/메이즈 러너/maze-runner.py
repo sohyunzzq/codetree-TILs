@@ -60,7 +60,7 @@ def RUNNER_MOVE(runner):
 
 def MAKE_SQUARE():
     #사람이 한 명 이상이고, 탈출구를 포함하는 정사각형들 모으기
-    for i in range(2, n):
+    for i in range(2, n + 1):
         #처음 왼쪽 위 좌표 기준점
         x, y = exitpos[0] - i + 1, exitpos[1] - i + 1
         for j in range(i * i):
@@ -192,16 +192,18 @@ for time in range(1, k + 1):
     for runner in runners:
         if not runner.escaped:
             RUNNER_MOVE(runner)
-
+            
+    #전부 탈출했으면 종료
+    if ALL_ESCAPED():
+        break
+        
     #다 움직인 후 정사각형 만듦, 왼쪽 위 좌표
     sq_x, sq_y, size = MAKE_SQUARE()
 
     #정사각형 회전, 내구도 감소시키기
     ROTATE(sq_x, sq_y, size)
 
-    #전부 탈출했으면 종료
-    if ALL_ESCAPED():
-        break
+
 
 print(ans)
 print(exitpos[0] + 1, exitpos[1] + 1)

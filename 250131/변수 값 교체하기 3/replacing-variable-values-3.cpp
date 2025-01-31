@@ -7,7 +7,7 @@ int main() {
     a=b;
     b=tmp;
 
-    cout<<a<<" "<<b;
+    cout<<a<<endl<<b;
     // Please write your code here.
     return 0;
 }

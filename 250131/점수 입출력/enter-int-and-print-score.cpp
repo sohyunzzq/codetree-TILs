@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int score;
     cin>>score;
-    cout<<"Your score is "<<score<<" points.";
+    cout<<"Your score is "<<score<<" point.";
     // Please write your code here.
     return 0;
 }

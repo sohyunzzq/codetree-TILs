@@ -5,7 +5,7 @@ int main() {
     int a=3;
     char b='C';
 
-    cout<<a<<"!.....!"<<b;
+    cout<<b<<"!.....!"<<a;
     // Please write your code here.
     return 0;
 }

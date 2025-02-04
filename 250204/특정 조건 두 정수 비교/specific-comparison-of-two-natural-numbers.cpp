@@ -7,7 +7,7 @@ int main() {
 
     if(a<b)
     cout<<1;
-    else if(a>b)
+    else 
     cout<<0;
 
     cout<<" ";

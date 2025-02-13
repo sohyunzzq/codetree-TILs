@@ -8,6 +8,8 @@ int main() {
             cout <<i<<" * "<<j<<" = "<<i*j;
             if (j%2==0)
             cout<<endl;
+            else
+            cout<<" / ";
         }
     }
     // Write your code here!

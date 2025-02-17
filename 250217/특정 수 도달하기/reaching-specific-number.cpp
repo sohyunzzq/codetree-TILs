@@ -15,7 +15,8 @@ int main() {
 
         sum+=n;
     }
-
+    cout<<fixed;
+    cout.precision(1);
     cout<<sum<<" "<<(double)sum/index;
     // Please write your code here.
     return 0;

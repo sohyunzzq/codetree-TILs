@@ -2,12 +2,10 @@
 #include <algorithm>
 using namespace std;
 
-#define endl '\n';
-
 int n;
 int area[25][25];
 int village = 0;
-int people[25] = {};
+int people[25*25] = {};
 bool visited[25][25];
 
 int dx[] = { -1, 0, 1, 0 };

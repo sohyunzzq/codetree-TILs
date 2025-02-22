@@ -38,7 +38,14 @@ int main() {
         for (int j = 0; j < m; j++)
             cin >> area[i][j];
 
-    for (int k = 1; ; k++) {
+    int min_k = 100, max_k = 0;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++) {
+            min_k = min(min_k, area[i][j]);
+            max_k = max(max_k, area[i][j]);
+        }
+
+    for (int k = min_k; k <= max_k; k++) {
         int cnt = 0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)

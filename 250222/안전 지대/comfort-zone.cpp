@@ -38,7 +38,7 @@ int main() {
         for (int j = 0; j < m; j++)
             cin >> area[i][j];
 
-    for (int k = 0; ; k++) {
+    for (int k = 1; ; k++) {
         int cnt = 0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)
@@ -57,7 +57,7 @@ int main() {
             safe_zone = cnt;
             ans = k;
         }
-        else if (cnt < safe_zone)
+        else if (cnt <= safe_zone)
             break;
     }
 

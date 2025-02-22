@@ -4,7 +4,7 @@ using namespace std;
 int n, m;
 int area[50][50];
 int ans = 1;
-int safe_zone = 1;
+int safe_zone = 0;
 bool visited[50][50];
 int dx[] = { -1, 0, 1, 0 };
 int dy[] = { 0, 1, 0, -1 };

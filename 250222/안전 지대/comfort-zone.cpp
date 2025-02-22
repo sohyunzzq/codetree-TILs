@@ -43,7 +43,7 @@ int main() {
             max_k = max(max_k, area[i][j]);
         }
 
-    int ans = max(1, min_k - 1);
+    int ans = 1;
     int safe_zone = 0;
 
     for (int k = max(1, min_k-1); k <= max_k; k++) {
@@ -65,8 +65,6 @@ int main() {
             safe_zone = cnt;
             ans = k;
         }
-        else if (cnt <= safe_zone)
-            break;
     }
 
     cout << ans << " " << safe_zone;

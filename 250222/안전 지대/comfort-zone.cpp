@@ -3,8 +3,6 @@ using namespace std;
 
 int n, m;
 int area[50][50];
-int ans = 1;
-int safe_zone = 0;
 bool visited[50][50];
 int dx[] = { -1, 0, 1, 0 };
 int dy[] = { 0, 1, 0, -1 };
@@ -45,7 +43,10 @@ int main() {
             max_k = max(max_k, area[i][j]);
         }
 
-    for (int k = min_k; k <= max_k; k++) {
+    int ans = max(1, min_k - 1);
+    int safe_zone = 0;
+
+    for (int k = max(1, min_k-1); k <= max_k; k++) {
         int cnt = 0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)

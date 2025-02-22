@@ -4,9 +4,9 @@ using namespace std;
 
 int n, k;
 int r, c;
-int area[100][100];
+int area[100+1][100+1];
 queue<pair<int, int>> q;
-bool visited[100][100];
+bool visited[100+1][100+1];
 pair<int, int> next_pos;
 int max_num;
 
@@ -57,11 +57,12 @@ int main() {
     r--, c--;
 
     for (int i = 0; i < k; i++) {
+
         for (int j = 0; j < n; j++)
             for (int m = 0; m < n; m++)
                 visited[j][m] = false;
 
-        max_num = 1;
+        max_num = 0;
         next_pos = { r, c };
         visited[r][c] = true;
         q.push({ r, c });

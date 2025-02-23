@@ -60,13 +60,19 @@ void Clear() {
         temp[picked[i].first][picked[i].second] = 0;
 
     // 돌 치운 후 BFS 돌려서 개수 찾기
+    cnt = 0;
     for (int i = 0; i < k; i++) {
-        cnt = 1;
-        q.push({ coords[i].first, coords[i].second });
-        visited[coords[i].first][coords[i].second] = true;
-        BFS();
-        ans = max(ans, cnt);
+        int x = coords[i].first;
+        int y = coords[i].second;
+
+        if (!visited[x][y]) {
+            q.push({ x, y });
+            cnt++;
+            visited[x][y] = true;
+            BFS();
+        }
     }
+    ans = max(ans, cnt);
 }
 
 void func(int curr) {

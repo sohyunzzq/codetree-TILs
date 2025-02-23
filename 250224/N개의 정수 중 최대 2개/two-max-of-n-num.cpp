@@ -20,9 +20,6 @@ int main() {
         }
         else if (num<=max_val && num>second_val)
         second_val=num;
-
-        cout<<max_val<<" "<<second_val;
-        
     }
 
     cout<<max_val<<" "<<second_val;

@@ -14,6 +14,7 @@ queue<pair<int, int>> q;
 pair<int, int> coords[100 * 100];
 bool visited[100][100];
 int cnt = 0;
+bool IsPicked[100 * 100];
 
 int dx[4] = { -1, 0, 1, 0 };
 int dy[4] = { 0, 1, 0, -1 };
@@ -83,9 +84,12 @@ void func(int curr) {
     }
 
     for (int i = 0; i < stone_cnt; i++) {
-        picked[curr] = stone[i];
-        func(curr + 1);
-        picked[curr] = { -1, -1 };
+        if (!IsPicked[i]) {
+            picked[curr] = stone[i];
+            IsPicked[i] = true;
+            func(curr + 1);
+            IsPicked[i] = false;
+        }
     }
 }
 

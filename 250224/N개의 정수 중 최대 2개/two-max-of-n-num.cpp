@@ -18,7 +18,7 @@ int main() {
             second_val=max_val;
             max_val=num;
         }
-        else if (num<=max_val && num>second_val)
+        else if (num<max_val && num>second_val)
         second_val=num;
     }
 

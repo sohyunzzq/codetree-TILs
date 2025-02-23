@@ -8,7 +8,7 @@ int main() {
     cin>>n;
 
     int max_val=INT_MIN;
-    int second_val=max_val+1;
+    int second_val=max_val;
 
     for(int i=0; i<n;i++){
         int num;
@@ -18,7 +18,7 @@ int main() {
             second_val=max_val;
             max_val=num;
         }
-        else if (num<max_val && num>second_val)
+        else if (num<=max_val && num>second_val)
         second_val=num;
     }
 

@@ -9,7 +9,7 @@ int main() {
         int n;
         cin>>n;
 
-        if(n==999 || b==-999)
+        if(n==999 || n==-999)
         break;
 
         if(n>max_val)

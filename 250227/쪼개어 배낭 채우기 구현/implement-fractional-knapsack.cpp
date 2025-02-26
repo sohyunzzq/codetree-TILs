@@ -4,8 +4,8 @@
 using namespace std;
 
 struct Jewel {
-    double weight;
-    double value;
+    int weight;
+    int value;
     double per;
     
     bool operator<(struct Jewel right) {
@@ -26,7 +26,7 @@ int main() {
         
         jewels[i].weight = w;
         jewels[i].value = v;
-        jewels[i].per = v / w;
+        jewels[i].per = double(v) / w;
     }
 
     sort(jewels.begin(), jewels.end());

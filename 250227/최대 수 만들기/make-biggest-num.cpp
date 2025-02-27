@@ -4,13 +4,6 @@
 using namespace std;
 
 bool cmp(string left, string right) {
-    if (left.size() == right.size())
-        for (int i = 0; i < left.size(); i++)
-            if (left[i] > right[i])
-                return true;
-            else
-                return false;
-    
     string left_right = left + right;
     string right_left = right + left;
 

@@ -22,7 +22,7 @@ bool cmp(string left, string right) {
 int main() {
     int n;
     cin >> n;
-    string nums[500];
+    string nums[50000];
     for (int i = 0; i < n; i++)
         cin >> nums[i];
 

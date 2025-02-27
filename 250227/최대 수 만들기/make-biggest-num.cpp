@@ -7,7 +7,7 @@ bool cmp(string left, string right) {
     string left_right = left + right;
     string right_left = right + left;
 
-    if (stoi(left_right) > stoi(right_left))
+    if (stol(left_right) > stol(right_left))
         return true;
     return false;
 }

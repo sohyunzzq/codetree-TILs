@@ -3,13 +3,25 @@
 using namespace std;
 
 bool cmp(string left, string right) {
-    for (int i = 0; i < min(left.size(), right.size()); i++) {
-        if (int(left[i] - '0') > int(right[i] - '0'))
+    int min_len = min(left.size(), right.size());
+    for (int i = 0; i < min_len; i++) {
+        if (int(left[i] - '0') >= int(right[i] - '0'))
             return true;
         else if (int(left[i] - '0') < int(right[i] - '0'))
             return false;
     }
-    return (left.size() < right.size());
+    if (left.size() < right.size()) {
+        if (right[min_len] > right[0])
+            return true;
+        else
+            return false;
+    }
+    if (left.size() > right.size()) {
+        if (left[min_len] > left[0])
+            return true;
+        else
+            return false;
+    }
 }
 
 int main() {

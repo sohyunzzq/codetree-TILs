@@ -6,17 +6,20 @@ int n, m;
 
 int main() {
     cin >> n >> m;
-    int arr[100][100];
+    int arr[100][100]={};
 
-    int num=1;
+    long num=1;
 
     for(int row=0; row<n; row++){
         for(int col=0; col<m; col++){
             if(arr[row][col]==0){
-            int j=row;
-            for(int i=col; i>=0 && j<n; i--){
-                arr[j++][i]=num++;
-            }
+                int i=row;
+                int j=col;
+                while(i<n && j>=0){
+                    arr[i][j]=num++;
+                    i++;
+                    j--;
+                }
             }
         }
     }

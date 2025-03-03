@@ -22,7 +22,7 @@ int main() {
 	vector<vector<int>> graph;
 	graph.resize(n + 1);
 	for (int i = 1; i <= n; i++)
-		graph[i].resize(n + 1);
+		graph[i].resize(n + 1, 0);
 
 	for (int i = 0; i < m; i++) {
 		int start, end, weight;

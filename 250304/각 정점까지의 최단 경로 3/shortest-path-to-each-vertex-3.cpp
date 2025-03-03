@@ -32,14 +32,14 @@ int main() {
 
 	for (int i = 1; i <= n; i++) {
 		dist[i] = INT_MAX;
-		q.push({ i, dist[i] });
 	}
 	dist[1] = 0;
+	q.push({ 1, 0 });
 
 	while (!q.empty()) {
 		struct Node now = q.top(); q.pop();
 		for (int i = 1; i <= n; i++) {
-			if (graph[now.v][i]) {
+			if (graph[now.v][i] > 0) {
 				if (dist[i] > dist[now.v] + graph[now.v][i]) {
 					dist[i] = dist[now.v] + graph[now.v][i];
 					check[i] = true;

@@ -7,7 +7,7 @@ int main() {
 
     int area[9][9]={};
     int num=1;
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<m; i++) {
         int x, y;
         cin>>x>>y;
 

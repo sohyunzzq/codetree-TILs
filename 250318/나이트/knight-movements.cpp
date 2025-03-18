@@ -37,7 +37,7 @@ void BFS() {
 				q.push({ nx, ny });
 				dist[nx][ny] = dist[x][y] + 1;
 
-				if (nx == r2 && ny == c2) {
+				if (nx == r2-1 && ny == c2-1) {
 					while (!q.empty())
 						q.pop();
 					return;

@@ -60,10 +60,8 @@ int main() {
 
 	visited[r1 - 1][c1 - 1] = 1;
 	q.push({ r1 - 1, c1 - 1 });
+	dist[r1 - 1][c1 - 1] = 0;
 	BFS();
 
-	if (dist[r2 - 1][c2 - 1] == -1)
-		cout << -1;
-	else
-		cout << dist[r2 - 1][c2 - 1] + 1;
+	cout << dist[r2 - 1][c2 - 1];
 }

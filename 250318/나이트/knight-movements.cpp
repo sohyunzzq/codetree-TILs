@@ -37,7 +37,7 @@ void BFS() {
 				q.push({ nx, ny });
 				dist[nx][ny] = dist[x][y] + 1;
 
-				if (nx == r2-1 && ny == c2-1) {
+				if (nx == r2 - 1 && ny == c2 - 1) {
 					while (!q.empty())
 						q.pop();
 					return;
@@ -53,17 +53,17 @@ int main() {
 	dist.resize(n);
 	for (int i = 0; i < n; i++) {
 		visited[i].resize(n);
-		dist[i].resize(n);
+		dist[i].resize(n, -1);
 	}
 
 	cin >> r1 >> c1 >> r2 >> c2;
 
-	visited[r1-1][c1-1] = 1;
-	q.push({ r1-1, c1-1 });
+	visited[r1 - 1][c1 - 1] = 1;
+	q.push({ r1 - 1, c1 - 1 });
 	BFS();
 
-	if (dist[r2 - 1][c2 - 1] == 0)
+	if (dist[r2 - 1][c2 - 1] == -1)
 		cout << -1;
 	else
-		cout << dist[r2 - 1][c2 - 1];
+		cout << dist[r2 - 1][c2 - 1] + 1;
 }

@@ -79,7 +79,7 @@ int main() {
 
 				for (int p=0; p<n; p++)
 					for (int q = 0; q < n; q++)
-						if (area[p][q] == 1 && !visited[p][q])
+						if (area[p][q] == 1 && !visited[p][q] && dist[p][q] == -1)
 							dist[p][q] = -2;
 			}
 		}

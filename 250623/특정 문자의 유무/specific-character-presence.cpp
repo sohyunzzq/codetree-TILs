@@ -9,6 +9,9 @@ int main() {
 	bool ab = false;
 
 	for (int i = 0; i < s.size() - 2; i++) {
+		if (s.size() < 2)
+			break;
+
 		if (s[i] == 'e' && s[i + 1] == 'e')
 			ee = true;
 

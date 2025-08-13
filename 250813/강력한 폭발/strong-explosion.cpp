@@ -41,7 +41,7 @@ void Simulation() {
 		int y = now.second;
 
 		if (selected[i] == 1) {
-			for (int i = -2; i < 2; i++) {
+			for (int i = -2; i <= 2; i++) {
 				if (InRange(x + i, y))
 					temp[x + i][y] = 2;
 			}

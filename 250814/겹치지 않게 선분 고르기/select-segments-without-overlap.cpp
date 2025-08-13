@@ -14,7 +14,7 @@ bool Possible(pair<int, int> now) {
 	int st = now.first;
 	int en = now.second;
 
-	for (int i = st; i < en; i++) {
+	for (int i = st; i <= en; i++) {
 		if (check[i])
 			return false;
 	}
@@ -25,7 +25,7 @@ void Draw(pair<int, int> now) {
 	int st = now.first;
 	int en = now.second;
 
-	for (int i = st; i < en; i++)
+	for (int i = st; i <= en; i++)
 		check[i] = true;
 }
 
@@ -33,7 +33,7 @@ void Erase(pair<int, int> now) {
 	int st = now.first;
 	int en = now.second;
 
-	for (int i = st; i < en; i++)
+	for (int i = st; i <= en; i++)
 		check[i] = false;
 }
 

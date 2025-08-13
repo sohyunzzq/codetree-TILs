@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-#define SZ 1000
+#define SZ 1001
 
 int n;
 vector<pair<int, int>> lines;

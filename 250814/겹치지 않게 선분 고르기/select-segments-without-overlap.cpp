@@ -35,13 +35,11 @@ void func(int index) {
 		return;
 	}
 
-	for (int i = index; i < n; i++) {
-		selected.push_back(i);
-		func(index + 1);
-		selected.pop_back();
+	selected.push_back(index);
+	func(index + 1);
+	selected.pop_back();
 
-		func(index + 1);
-	}
+	func(index + 1);
 }
 
 int main() {

@@ -2,6 +2,7 @@
 using namespace std;
 
 #define SZ 1001
+#define MOD 10007
 
 int DP[SZ];
 
@@ -14,7 +15,7 @@ int main() {
     DP[2]=2;
     
     for(int i=3; i<=n; i++) {
-        DP[i]=DP[i-1]+DP[i-2];
+        DP[i]=(DP[i-1]+DP[i-2])%MOD;
     }
 
     cout<<DP[n];

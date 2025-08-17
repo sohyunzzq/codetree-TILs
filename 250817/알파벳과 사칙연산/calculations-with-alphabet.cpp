@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <climits>
 using namespace std;
 
 string s;
 int selected[6];
 vector<int> index;
-int ans;
+int ans = -INT_MAX;
 int alpha[6];
 
 void GetAns() {

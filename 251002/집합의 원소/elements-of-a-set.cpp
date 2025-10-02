@@ -5,19 +5,15 @@ using namespace std;
 
 vector<int> uf;
 
-int Find(int a) {
-	// 내 부모가 나
-	if (a == uf[a])
-		return a;
-
-	int root_node = Find(uf[a]);
-	uf[a] = root_node;
-	return root_node;
+int Find(int x) {
+	if (uf[x] == x)
+		return x;
+	return uf[x] = Find(uf[x]);
 }
 
 void Union(int x, int y) {
-	int X = uf[x];
-	int Y = uf[y];
+	int X = Find(x);
+	int Y = Find(y);
 	
 	uf[X] = Y;
 }
